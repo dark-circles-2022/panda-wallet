@@ -11,12 +11,12 @@ export const App = () => (
       w="320px"
       h="568px"
       m="auto"
-      borderRadius={'3xl'}
+      borderRadius={'1.25rem'}
       overflow="hidden"
       boxShadow="0px 4px 40px rgba(0, 0, 0, 0.1)"
     >
       <OnboardingLayout
-        title={'Hey!'}
+        title={'Hey! 👋'}
         subtext={"Let's get you all settled"}
         currentStep={1}
         totalSteps={2}

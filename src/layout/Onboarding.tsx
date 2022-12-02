@@ -1,4 +1,4 @@
-import { Box, Text } from '@chakra-ui/react';
+import { Box, Flex, Text } from '@chakra-ui/react';
 import React from 'react';
 
 const OnboardingLayout = ({
@@ -21,12 +21,13 @@ const OnboardingLayout = ({
   children?: React.ReactNode;
 }) => {
   return (
-    <Box
+    <Flex
       as={'section'}
       bgColor={'bg.onboarding'}
       h="100%"
       w="100%"
       color="white"
+      flexDir={'column'}
     >
       <Box
         as="header"
@@ -51,14 +52,16 @@ const OnboardingLayout = ({
       </Box>
 
       <Box
+        p="0.625rem"
+        pb="14px"
         w="full"
         h="full"
-        borderTopRadius={'3xl'}
+        borderTopRadius={'1.25rem'}
         bgColor={'white'}
       >
         {children}
       </Box>
-    </Box>
+    </Flex>
   );
 };
 
