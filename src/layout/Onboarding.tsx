@@ -1,8 +1,6 @@
 import React from 'react';
-import { Box, CircularProgress, CircularProgressLabel, Flex, Icon, IconButton, Text } from '@chakra-ui/react';
-import BackButton from '../components/BackButton';
+import { Box, CircularProgress, CircularProgressLabel, Flex, Text } from '@chakra-ui/react';
 import ButtonIcon from '../components/ButtonIcon';
-import { ReactComponent as BackIcon } from '../assets/Icons/ArrowBendUpLeft.svg';
 import { HiArrowLeft } from 'react-icons/hi';
 
 const OnboardingLayout = ({
@@ -74,7 +72,7 @@ const OnboardingLayout = ({
             <>
               <ButtonIcon
                 ariaLabel="Back"
-                variant="ghost"
+                variant="semi-solid"
                 // displayIcon={BackIcon as any}
                 displayIcon={HiArrowLeft as any}
               />
@@ -86,6 +84,10 @@ const OnboardingLayout = ({
               <ButtonIcon
                 ariaLabel="Back"
                 variant="outline"
+                displayIcon={HiArrowLeft as any}
+              />
+              <ButtonIcon
+                ariaLabel="Back"
                 displayIcon={HiArrowLeft as any}
               />
             </>

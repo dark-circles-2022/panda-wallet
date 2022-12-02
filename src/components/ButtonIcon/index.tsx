@@ -3,9 +3,9 @@ import React, { FC, HTMLAttributes } from 'react';
 
 const ButtonIcon: FC<
   HTMLAttributes<HTMLButtonElement> &
-    ChakraProps & { displayIcon: string; variant: 'solid' | 'ghost' | 'outline'; ariaLabel: string }
+    ChakraProps & { displayIcon: string; variant?: 'solid' | 'ghost' | 'outline' | 'semi-solid'; ariaLabel: string }
 > = ({ ariaLabel, displayIcon, variant, ...props }) => {
-  if (variant === 'ghost')
+  if (variant === 'semi-solid')
     return (
       <IconButton
         w={'10'}
@@ -18,7 +18,7 @@ const ButtonIcon: FC<
         _hover={{
           bg: 'icon.bg.ghost.hover',
         }}
-        color="icon.border.100"
+        color="icon.border.200"
         borderRadius="50%"
         aria-label={ariaLabel}
         {...props}
@@ -48,6 +48,29 @@ const ButtonIcon: FC<
         {...props}
       />
     );
+  else if (variant === 'outline')
+    return (
+      <IconButton
+        w={'10'}
+        h={'10'}
+        p={'2'}
+        icon={
+          <Icon
+            color={'icon.border.200'}
+            stroke={'icon.border.200'}
+            as={displayIcon as any}
+          />
+        }
+        border="2px solid"
+        borderColor="icon.border.50"
+        _hover={{
+          bg: 'icon.bg.ghost.default',
+        }}
+        borderRadius="50%"
+        aria-label={ariaLabel}
+        {...props}
+      />
+    );
 
   return (
     <IconButton
@@ -61,8 +84,6 @@ const ButtonIcon: FC<
           as={displayIcon as any}
         />
       }
-      border="2px solid"
-      borderColor="icon.border.100"
       _hover={{
         bg: 'icon.bg.ghost.default',
       }}
