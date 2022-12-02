@@ -1,33 +1,18 @@
 import * as React from 'react';
-import { ChakraProvider, Box, Text, Link, VStack, Code, Grid, theme } from '@chakra-ui/react';
-import { ColorModeSwitcher } from './components/ColorModeSwitcher';
+import { ChakraProvider } from '@chakra-ui/react';
+import OnboardingLayout from './layout/Onboarding';
+import theme from './theme';
 
 export const App = () => (
   <ChakraProvider theme={theme}>
-    <Box
-      textAlign="center"
-      fontSize="xl"
-    >
-      <Grid
-        minH="100vh"
-        p={3}
-      >
-        <ColorModeSwitcher justifySelf="flex-end" />
-        <VStack spacing={8}>
-          <Text>
-            Edit <Code fontSize="xl">src/App.tsx</Code> and save to reload.
-          </Text>
-          <Link
-            color="teal.500"
-            href="https://chakra-ui.com"
-            fontSize="2xl"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn Chakra
-          </Link>
-        </VStack>
-      </Grid>
-    </Box>
+    <OnboardingLayout
+      title={'title'}
+      subtext={'subtext'}
+      currentStep={1}
+      totalSteps={2}
+      isBackButtonVisible={true}
+      isStepNumberVisible={true}
+      canSkip={false}
+    />
   </ChakraProvider>
 );
