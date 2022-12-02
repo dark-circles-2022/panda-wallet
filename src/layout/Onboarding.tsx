@@ -1,6 +1,9 @@
 import React from 'react';
 import { Box, CircularProgress, CircularProgressLabel, Flex, Icon, IconButton, Text } from '@chakra-ui/react';
 import BackButton from '../components/BackButton';
+import ButtonIcon from '../components/ButtonIcon';
+import { ReactComponent as BackIcon } from '../assets/Icons/ArrowBendUpLeft.svg';
+import { HiArrowLeft } from 'react-icons/hi';
 
 const OnboardingLayout = ({
   title,
@@ -62,8 +65,31 @@ const OnboardingLayout = ({
         borderTopRadius={'1.25rem'}
         bgColor={'white'}
       >
-        <Flex justify="space-between">
-          {isBackButtonVisible && <BackButton />}
+        <Flex
+          justify="space-between"
+          mb="0.75rem"
+        >
+          {/* {isBackButtonVisible && <BackButton />} */}
+          {isBackButtonVisible && (
+            <>
+              <ButtonIcon
+                ariaLabel="Back"
+                variant="ghost"
+                // displayIcon={BackIcon as any}
+                displayIcon={HiArrowLeft as any}
+              />
+              <ButtonIcon
+                ariaLabel="Back"
+                variant="solid"
+                displayIcon={HiArrowLeft as any}
+              />
+              <ButtonIcon
+                ariaLabel="Back"
+                variant="outline"
+                displayIcon={HiArrowLeft as any}
+              />
+            </>
+          )}
           {heading}
           {isStepNumberVisible && (
             <CircularProgress
@@ -79,13 +105,6 @@ const OnboardingLayout = ({
                 {currentStep}/{totalSteps}
               </CircularProgressLabel>
             </CircularProgress>
-            // <Text
-            //   fontSize={'0.75rem'}
-            //   fontWeight={500}
-            //   color="gray.500"
-            // >
-            //   {currentStep}/{totalSteps}
-            // </Text>
           )}
         </Flex>
         {children}

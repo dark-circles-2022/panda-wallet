@@ -9,11 +9,17 @@ const config = {
 const colors = {
   bg: {
     onboarding: 'black',
-    icon: {
+  },
+  icon: {
+    bg: {
       ghost: {
         default: '#F5F5F5',
         hover: '#E5E5E5',
       },
+    },
+    border: {
+      50: '#49536E0a',
+      100: '#49536E',
     },
   },
   text: {
