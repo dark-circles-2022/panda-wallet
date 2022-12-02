@@ -1,18 +1,29 @@
 import * as React from 'react';
-import { ChakraProvider } from '@chakra-ui/react';
+import { Box, ChakraProvider } from '@chakra-ui/react';
 import OnboardingLayout from './layout/Onboarding';
 import theme from './theme';
 
 export const App = () => (
   <ChakraProvider theme={theme}>
-    <OnboardingLayout
-      title={'title'}
-      subtext={'subtext'}
-      currentStep={1}
-      totalSteps={2}
-      isBackButtonVisible={true}
-      isStepNumberVisible={true}
-      canSkip={false}
-    />
+    <Box
+      maxW="20rem"
+      maxH="35.5rem"
+      w="20rem"
+      h="35.5rem"
+      m="auto"
+      borderRadius={'1.25rem'}
+      overflow="hidden"
+      boxShadow="0px 4px 40px rgba(0, 0, 0, 0.1)"
+    >
+      <OnboardingLayout
+        title={'Hey! 👋'}
+        subtext={"Let's get you all settled"}
+        currentStep={1}
+        totalSteps={5}
+        isBackButtonVisible={true}
+        isStepNumberVisible={true}
+        canSkip={false}
+      />
+    </Box>
   </ChakraProvider>
 );
