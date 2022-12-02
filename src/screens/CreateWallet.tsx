@@ -9,6 +9,7 @@ const CreateWallet = () => {
     <OnboardingLayout
       title="Create"
       subtext="A new story awaits!"
+      heading="Wallet Password"
       currentStep={2}
       totalSteps={5}
       isBackButtonVisible
@@ -22,17 +23,17 @@ const CreateWallet = () => {
 
       <VStack
         color="black"
-        px="1.5rem"
-        py="0.5rem"
+        px="1.25rem"
+        mt="1rem"
         align={'start'}
       >
         <Text fontSize={'0.8rem'}>What is Password?</Text>
         <Text fontSize={'0.65rem'}>Passwords secure your wallet, they are unique for each device.</Text>
       </VStack>
       <Flex
-        p="1rem"
-        justify={'end'}
-        bottom="1rem"
+        position={'absolute'}
+        bottom={'1.5rem'}
+        right={'1.5rem'}
       >
         <PrimaryButton
           icon={Arrow as any}

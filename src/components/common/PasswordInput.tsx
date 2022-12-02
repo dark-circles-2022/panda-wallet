@@ -13,8 +13,8 @@ const PasswordInput = ({ label }: { label: string }) => {
 
   return (
     <Box
-      px="1rem"
-      py="0.75rem"
+      px="0.75rem"
+      py="0.5rem"
     >
       <Text
         color={'black'}

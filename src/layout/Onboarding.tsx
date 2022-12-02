@@ -26,6 +26,7 @@ const OnboardingLayout = ({
 }) => {
   return (
     <Flex
+      position={'relative'}
       as={'section'}
       bgColor={'bg.onboarding'}
       h="100%"
@@ -62,10 +63,13 @@ const OnboardingLayout = ({
         h="full"
         borderTopRadius={'1.25rem'}
         bgColor={'white'}
+        color="black"
       >
         <Flex
           justify="space-between"
+          align={'center'}
           mb="0.75rem"
+          px={'0.75rem'}
         >
           {/* {isBackButtonVisible && <BackButton />} */}
           {isBackButtonVisible && (
@@ -76,7 +80,7 @@ const OnboardingLayout = ({
                 // displayIcon={BackIcon as any}
                 displayIcon={HiArrowLeft as any}
               />
-              <ButtonIcon
+              {/* <ButtonIcon
                 ariaLabel="Back"
                 variant="solid"
                 displayIcon={HiArrowLeft as any}
@@ -89,10 +93,10 @@ const OnboardingLayout = ({
               <ButtonIcon
                 ariaLabel="Back"
                 displayIcon={HiArrowLeft as any}
-              />
+              /> */}
             </>
           )}
-          {heading}
+          <Text fontWeight={500}>{heading}</Text>
           {isStepNumberVisible && (
             <CircularProgress
               value={(currentStep / totalSteps) * 100}
