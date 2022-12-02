@@ -3,6 +3,8 @@ import { Box, ChakraProvider } from '@chakra-ui/react';
 import OnboardingLayout from './layout/Onboarding';
 import theme from './theme';
 import CreateWallet from './screens/CreateWallet';
+import AddGuardians from './screens/AddGuardians';
+import WalletName from './screens/WalletName';
 
 export const App = () => (
   <ChakraProvider theme={theme}>
@@ -25,7 +27,9 @@ export const App = () => (
         isStepNumberVisible={true}
         canSkip={false}
       /> */}
-      <CreateWallet />
+      {/* <CreateWallet /> */}
+      {/* <AddGuardians /> */}
+      <WalletName />
     </Box>
   </ChakraProvider>
 );
