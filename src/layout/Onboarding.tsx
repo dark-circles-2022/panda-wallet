@@ -49,8 +49,11 @@ const OnboardingLayout = ({
       <Box
         w="full"
         borderTopRadius={'lg'}
-      ></Box>
-      {children}
+        bgColor={'white'}
+        h="full"
+      >
+        {children}
+      </Box>
     </Box>
   );
 };

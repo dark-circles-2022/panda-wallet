@@ -6,8 +6,8 @@ import theme from './theme';
 export const App = () => (
   <ChakraProvider theme={theme}>
     <OnboardingLayout
-      title={'title'}
-      subtext={'subtext'}
+      title={'Hey!'}
+      subtext={"Let's get you all settled"}
       currentStep={1}
       totalSteps={2}
       isBackButtonVisible={true}
