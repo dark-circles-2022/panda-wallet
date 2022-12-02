@@ -1,9 +1,11 @@
-import { Box, Flex, Text } from '@chakra-ui/react';
 import React from 'react';
+import { Box, CircularProgress, CircularProgressLabel, Flex, Icon, IconButton, Text } from '@chakra-ui/react';
+import BackButton from '../components/BackButton';
 
 const OnboardingLayout = ({
   title,
   subtext,
+  heading,
   currentStep,
   totalSteps,
   isBackButtonVisible = true,
@@ -13,6 +15,7 @@ const OnboardingLayout = ({
 }: {
   title: string;
   subtext: string;
+  heading?: string;
   currentStep: number;
   totalSteps: number;
   isBackButtonVisible: boolean;
@@ -53,12 +56,38 @@ const OnboardingLayout = ({
 
       <Box
         p="0.625rem"
-        pb="14px"
+        pb="0.875rem"
         w="full"
         h="full"
         borderTopRadius={'1.25rem'}
         bgColor={'white'}
       >
+        <Flex justify="space-between">
+          {isBackButtonVisible && <BackButton />}
+          {heading}
+          {isStepNumberVisible && (
+            <CircularProgress
+              value={(currentStep / totalSteps) * 100}
+              color="black"
+              size="10"
+            >
+              <CircularProgressLabel
+                fontSize={'0.75rem'}
+                fontWeight={800}
+                color={'text.main.900'}
+              >
+                {currentStep}/{totalSteps}
+              </CircularProgressLabel>
+            </CircularProgress>
+            // <Text
+            //   fontSize={'0.75rem'}
+            //   fontWeight={500}
+            //   color="gray.500"
+            // >
+            //   {currentStep}/{totalSteps}
+            // </Text>
+          )}
+        </Flex>
         {children}
       </Box>
     </Flex>

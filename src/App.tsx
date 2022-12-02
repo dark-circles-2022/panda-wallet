@@ -6,10 +6,10 @@ import theme from './theme';
 export const App = () => (
   <ChakraProvider theme={theme}>
     <Box
-      maxW="320px"
-      maxH="568px"
-      w="320px"
-      h="568px"
+      maxW="20rem"
+      maxH="35.5rem"
+      w="20rem"
+      h="35.5rem"
       m="auto"
       borderRadius={'1.25rem'}
       overflow="hidden"
@@ -19,7 +19,7 @@ export const App = () => (
         title={'Hey! 👋'}
         subtext={"Let's get you all settled"}
         currentStep={1}
-        totalSteps={2}
+        totalSteps={5}
         isBackButtonVisible={true}
         isStepNumberVisible={true}
         canSkip={false}

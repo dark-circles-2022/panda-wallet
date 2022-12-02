@@ -9,6 +9,12 @@ const config = {
 const colors = {
   bg: {
     onboarding: 'black',
+    icon: {
+      ghost: {
+        default: '#F5F5F5',
+        hover: '#E5E5E5',
+      },
+    },
   },
   text: {
     placeholder: '#D0D2D5',
@@ -24,10 +30,9 @@ const colors = {
 const styles = {
   global: (props: StyleFunctionProps) => ({
     html: {
-      fontSize: '16px',
+      fontSize: '18px',
     },
     body: {
-      fontSize: '16px',
       fontFamily: 'Inter, sans-serif',
       backgroundColor: '#DBDBDB',
     },
