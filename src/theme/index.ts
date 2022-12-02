@@ -29,6 +29,15 @@ const styles = {
     body: {
       fontSize: '16px',
       fontFamily: 'Inter, sans-serif',
+      backgroundColor: '#DBDBDB',
+    },
+    '#root': {
+      height: '100vh',
+      width: '100vw',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
     },
   }),
 };

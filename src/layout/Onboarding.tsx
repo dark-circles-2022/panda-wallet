@@ -24,33 +24,37 @@ const OnboardingLayout = ({
     <Box
       as={'section'}
       bgColor={'bg.onboarding'}
-      h="100vh"
-      w="100vw"
+      h="100%"
+      w="100%"
       color="white"
-      p="8"
     >
-      <Text
-        fontSize={'2rem'}
-        fontWeight={500}
-        as="h1"
-        mb="0.75rem"
+      <Box
+        as="header"
+        p="8"
       >
-        {title}
-      </Text>
-      <Text
-        fontSize={'1rem'}
-        fontWeight={400}
-        as="h2"
-        color="whiteAlpha.700"
-      >
-        {subtext}
-      </Text>
+        <Text
+          fontSize={'2rem'}
+          fontWeight={500}
+          as="h1"
+          mb="0.75rem"
+        >
+          {title}
+        </Text>
+        <Text
+          fontSize={'1rem'}
+          fontWeight={400}
+          as="h2"
+          color="whiteAlpha.700"
+        >
+          {subtext}
+        </Text>
+      </Box>
 
       <Box
         w="full"
-        borderTopRadius={'lg'}
-        bgColor={'white'}
         h="full"
+        borderTopRadius={'3xl'}
+        bgColor={'white'}
       >
         {children}
       </Box>
