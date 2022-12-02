@@ -1,24 +1,24 @@
 import OnboardingLayout from '../layout/Onboarding';
-import PasswordInput from '../components/common/PasswordInput';
 import PrimaryButton from '../components/common/Button';
-import { Box, Flex, Text, VStack } from '@chakra-ui/react';
+import { Box, Flex, Text } from '@chakra-ui/react';
 import { FiArrowUpRight as Arrow } from 'react-icons/fi';
+import PasteInput from '../components/common/PasteInput';
 
-const CreateWallet = () => {
+const AddGuardians = () => {
   return (
     <OnboardingLayout
-      title="Create"
-      subtext="A new story awaits!"
-      heading="Wallet Password"
-      currentStep={2}
+      title="Guardians"
+      subtext="Your support system"
+      heading="Recovery Frens"
+      currentStep={3}
       totalSteps={5}
       isBackButtonVisible
       isStepNumberVisible
       canSkip={false}
     >
       <Flex direction={'column'}>
-        <PasswordInput label={'Add Password'} />
-        <PasswordInput label={'Confirm Password'} />
+        <PasteInput label={'Fren 1'} />
+        <PasteInput label={'Fren 2'} />
       </Flex>
       <Box
         color="black"
@@ -29,13 +29,19 @@ const CreateWallet = () => {
           fontSize={'0.8rem'}
           color="blackAlpha.700"
         >
-          What is Password?
+          How many frens?
+        </Text>
+        <Text
+          fontSize={'0.65rem'}
+          color="blackAlpha.700"
+        >
+          The more, the merrier!
         </Text>
         <Text
           fontSize={'0.65rem'}
           color="blackAlpha.600"
         >
-          Passwords secure your wallet, they are unique for each device.
+          You can also register your other ethereum accounts as frens.
         </Text>
       </Box>
       {/* To be link to help */}
@@ -66,4 +72,4 @@ const CreateWallet = () => {
   );
 };
 
-export default CreateWallet;
+export default AddGuardians;
