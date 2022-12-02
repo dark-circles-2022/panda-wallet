@@ -10,6 +10,7 @@ interface Props {
 const PrimaryButton = ({ icon, prompt, color, bg }: Props) => {
   return (
     <Button
+      size={'sm'}
       color={color}
       backgroundColor={bg}
       rightIcon={<Icon as={icon} />}

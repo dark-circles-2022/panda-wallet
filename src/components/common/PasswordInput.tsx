@@ -1,9 +1,9 @@
-import { Icon, IconButton, Input, InputGroup, InputRightElement } from '@chakra-ui/react';
+import { Icon, IconButton, Input, InputGroup, InputRightElement, Text, Box, Flex } from '@chakra-ui/react';
 import { useState } from 'react';
-import { ReactComponent as Show } from '../../assets/Icons/Eye.svg';
-import { ReactComponent as Hide } from '../../assets/Icons/EyeClosed.svg';
+import ButtonIcon from '../ButtonIcon';
+import { RiEyeCloseLine as Hide, RiEyeLine as Show } from 'react-icons/ri';
 
-const PasswordInput = () => {
+const PasswordInput = ({ label }: { label: string }) => {
   const [shown, setShown] = useState(false);
   const [value, setValue] = useState('');
 
@@ -12,26 +12,44 @@ const PasswordInput = () => {
   };
 
   return (
-    <InputGroup size="md">
-      <Input
-        type={shown ? 'text' : 'password'}
-        placeholder="Enter password"
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
-        borderRadius={'full'}
-        variant={'filled'}
-        colorScheme={'blackAlpha'}
-      />
-      <InputRightElement width="4.5rem">
-        <IconButton
+    <Box
+      px="1rem"
+      py="0.75rem"
+    >
+      <Text
+        color={'black'}
+        fontSize={'0.8rem'}
+        mb={'0.25rem'}
+        ml={'0.25rem'}
+      >
+        {label}
+      </Text>
+      <InputGroup>
+        <Input
+          type={shown ? 'text' : 'password'}
+          border="2px solid"
+          borderColor="icon.border.50"
+          placeholder="Enter password"
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
           borderRadius={'full'}
-          onClick={handleClickShowPassword}
-          icon={shown ? <Hide /> : <Show />}
-          aria-label={'create password'}
-          size={'sm'}
+          variant={'filled'}
+          color={'black'}
+          h={'3rem'}
         />
-      </InputRightElement>
-    </InputGroup>
+        <InputRightElement
+          width="3rem"
+          h={'3rem'}
+        >
+          <ButtonIcon
+            displayIcon={shown ? (Hide as any) : (Show as any)}
+            ariaLabel="Toggle Show Password"
+            variant="semi-solid"
+            onClick={handleClickShowPassword}
+          />
+        </InputRightElement>
+      </InputGroup>
+    </Box>
   );
 };
 

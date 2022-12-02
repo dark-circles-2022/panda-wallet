@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Box, ChakraProvider } from '@chakra-ui/react';
 import OnboardingLayout from './layout/Onboarding';
 import theme from './theme';
+import CreateWallet from './screens/CreateWallet';
 
 export const App = () => (
   <ChakraProvider theme={theme}>
@@ -15,7 +16,7 @@ export const App = () => (
       overflow="hidden"
       boxShadow="0px 4px 40px rgba(0, 0, 0, 0.1)"
     >
-      <OnboardingLayout
+      {/* <OnboardingLayout
         title={'Hey! 👋'}
         subtext={"Let's get you all settled"}
         currentStep={1}
@@ -23,7 +24,8 @@ export const App = () => (
         isBackButtonVisible={true}
         isStepNumberVisible={true}
         canSkip={false}
-      />
+      /> */}
+      <CreateWallet />
     </Box>
   </ChakraProvider>
 );
