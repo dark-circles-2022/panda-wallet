@@ -1,11 +1,9 @@
 import OnboardingLayout from '../layout/OnboardingLayout';
-import PrimaryButton from '../components/common/Button';
 import { Flex, Text } from '@chakra-ui/react';
 import { BiWalletAlt as Wallet } from 'react-icons/bi';
 import { AiOutlineCloudDownload as Recover } from 'react-icons/ai';
-import { FiArrowUpRight as Arrow } from 'react-icons/fi';
 import BigIconButton from '../components/common/BigIconButton';
-import { redirect, useNavigate } from 'react-router';
+import { useNavigate } from 'react-router';
 
 const Onboard = () => {
   const navigate = useNavigate();

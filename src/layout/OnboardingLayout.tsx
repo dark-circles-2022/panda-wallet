@@ -1,21 +1,5 @@
 import React from 'react';
-import {
-  Box,
-  Button,
-  CircularProgress,
-  CircularProgressLabel,
-  Flex,
-  Icon,
-  Modal,
-  ModalBody,
-  ModalCloseButton,
-  ModalContent,
-  ModalFooter,
-  ModalHeader,
-  ModalOverlay,
-  Text,
-  useDisclosure,
-} from '@chakra-ui/react';
+import { Box, Button, CircularProgress, CircularProgressLabel, Flex, Text, useDisclosure } from '@chakra-ui/react';
 import ButtonIcon from '../components/ButtonIcon';
 import { HiArrowLeft } from 'react-icons/hi';
 import { useNavigate } from 'react-router';
@@ -145,7 +129,7 @@ const OnboardingLayout = ({
           )}
         </Flex>
 
-        <Box px="4">{children}</Box>
+        <Box>{children}</Box>
 
         <Flex
           mt="auto"
