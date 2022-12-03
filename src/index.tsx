@@ -9,6 +9,7 @@ import AddGuardians from './screens/AddGuardians';
 import theme from './theme';
 import { createBrowserRouter } from 'react-router-dom';
 import WalletSelect from './screens/WalletSelectRecovery';
+import PingGaurdian from './screens/PingGaurdian';
 
 const container = document.getElementById('root');
 if (!container) throw new Error('Failed to find the root element');
@@ -41,7 +42,7 @@ const router = createBrowserRouter(
       {/* Recover */}
       <Route
         path="test"
-        element={<WalletSelect />}
+        element={<PingGaurdian />}
       />
     </Route>
   )

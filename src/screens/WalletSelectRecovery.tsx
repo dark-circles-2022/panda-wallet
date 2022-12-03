@@ -1,11 +1,5 @@
 import OnboardingLayout from '../layout/OnboardingLayout';
-import PrimaryButton from '../components/common/Button';
 import { Box, Flex, Text, useRadio, useRadioGroup, VStack } from '@chakra-ui/react';
-import { BiWalletAlt as Wallet } from 'react-icons/bi';
-import { AiOutlineCloudDownload as Recover } from 'react-icons/ai';
-import { FiArrowUpRight as Arrow } from 'react-icons/fi';
-import BigIconButton from '../components/common/BigIconButton';
-import { redirect, useNavigate } from 'react-router';
 
 const WalletSelect = () => {
   const wallets = [
@@ -34,8 +28,8 @@ const WalletSelect = () => {
       <VStack {...group}>
         <Text
           textAlign={'left'}
-          w="full"
           fontSize={'0.8rem'}
+          ml="1rem"
         >
           Select a wallet to recover
         </Text>
@@ -48,7 +42,6 @@ const WalletSelect = () => {
             >
               <Text fontWeight={'600'}>{wallet.name}</Text>
               <Text
-                as="span"
                 fontSize={'0.8rem'}
                 fontWeight={400}
                 ml="0.5rem"
@@ -76,7 +69,6 @@ const WalletOption = (props) => {
       <Flex
         {...checkbox}
         cursor="pointer"
-        borderWidth="1px"
         borderRadius="full"
         border="2px solid"
         borderColor={'icon.border.50'}
