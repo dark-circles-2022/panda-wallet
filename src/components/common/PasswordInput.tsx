@@ -37,7 +37,8 @@ const PasswordInput = ({ label }: { label: string }) => {
           _hover={{
             bg: 'input.bg.focus',
           }}
-          placeholder="Enter password"
+          placeholder="&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;"
+          _placeholder={{ color: 'text.placeholder' }}
           value={value}
           onChange={(e) => setValue(e.target.value)}
           borderRadius={'full'}

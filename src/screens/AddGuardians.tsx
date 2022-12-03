@@ -1,4 +1,4 @@
-import OnboardingLayout from '../layout/Onboarding';
+import OnboardingLayout from '../layout/OnboardingLayout';
 import PrimaryButton from '../components/common/Button';
 import { Box, Flex, Text } from '@chakra-ui/react';
 import { FiArrowUpRight as Arrow } from 'react-icons/fi';

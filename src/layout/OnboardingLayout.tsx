@@ -1,8 +1,10 @@
 import React from 'react';
-import { Box, CircularProgress, CircularProgressLabel, Flex, Text } from '@chakra-ui/react';
+import { Box, Button, CircularProgress, CircularProgressLabel, Flex, Text } from '@chakra-ui/react';
 import ButtonIcon from '../components/ButtonIcon';
 import { HiArrowLeft } from 'react-icons/hi';
 import { useNavigate } from 'react-router';
+import PrimaryButton from '../components/common/Button';
+import { FiArrowUpRight as Arrow } from 'react-icons/fi';
 
 const OnboardingLayout = ({
   title,
@@ -20,8 +22,8 @@ const OnboardingLayout = ({
   heading?: string;
   currentStep: number;
   totalSteps: number;
-  isBackButtonVisible: boolean;
-  isStepNumberVisible: boolean;
+  isBackButtonVisible?: boolean;
+  isStepNumberVisible?: boolean;
   canSkip?: boolean;
   children?: React.ReactNode;
 }) => {
@@ -59,14 +61,16 @@ const OnboardingLayout = ({
         </Text>
       </Box>
 
-      <Box
-        p="0.625rem"
+      <Flex
+        p="1rem 1.25rem"
         pb="0.875rem"
         w="full"
         h="full"
         borderTopRadius={'1.25rem'}
         bgColor={'white'}
         color="black"
+        justifyContent="space-between"
+        flexDir="column"
       >
         <Flex
           justify="space-between"
@@ -109,8 +113,42 @@ const OnboardingLayout = ({
             </CircularProgress>
           )}
         </Flex>
-        {children}
-      </Box>
+
+        <Box px="4">{children}</Box>
+
+        <Flex
+          mt="auto"
+          flexDir="column"
+          w="full"
+        >
+          <Button
+            variant="link"
+            alignSelf="end"
+            textDecor={'underline'}
+            fontSize={'0.7rem'}
+            color="blackAlpha.600"
+            cursor={'pointer'}
+            mr="0.5rem"
+            mb="0.5rem"
+          >
+            need help?
+          </Button>
+
+          <Flex
+            w="full"
+            justifyContent="space-between"
+          >
+            <PrimaryButton
+              justifySelf="end"
+              ml="auto"
+              icon={Arrow as any}
+              prompt={'next'}
+              color={'white'}
+              bg={'black'}
+            />
+          </Flex>
+        </Flex>
+      </Flex>
     </Flex>
   );
 };

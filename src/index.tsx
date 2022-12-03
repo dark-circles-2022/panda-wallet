@@ -1,18 +1,19 @@
 import { Box, ChakraProvider, ColorModeScript } from '@chakra-ui/react';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom/client';
-import { RouterProvider, createMemoryRouter, createRoutesFromElements, Route, Routes, Outlet } from 'react-router';
+import { RouterProvider, createRoutesFromElements, Route, Outlet } from 'react-router';
 import Onboard from './screens/Onboard';
 import SetPassword from './screens/SetPassword';
 import WalletName from './screens/WalletName';
 import AddGuardians from './screens/AddGuardians';
 import theme from './theme';
+import { createBrowserRouter } from 'react-router-dom';
 
 const container = document.getElementById('root');
 if (!container) throw new Error('Failed to find the root element');
 const root = ReactDOM.createRoot(container);
 
-const router = createMemoryRouter(
+const router = createBrowserRouter(
   createRoutesFromElements(
     <Route
       path=""
@@ -36,16 +37,18 @@ const router = createMemoryRouter(
           element={<AddGuardians />}
         />
       </Route>
+      {/* Recover */}
     </Route>
-  ),
-  {
-    initialEntries: ['/'],
-    initialIndex: 1,
-  }
+  )
+  // {
+  //   initialEntries: ['/'],
+  //   initialIndex: 1,
+  // }
 );
 
 root.render(
   <React.StrictMode>
+    <ColorModeScript />
     <ChakraProvider theme={theme}>
       <Box
         maxW="20rem"

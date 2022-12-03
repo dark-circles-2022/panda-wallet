@@ -1,4 +1,4 @@
-import OnboardingLayout from '../layout/Onboarding';
+import OnboardingLayout from '../layout/OnboardingLayout';
 import PrimaryButton from '../components/common/Button';
 import { Box, Flex, Input, InputGroup, InputRightAddon, Text } from '@chakra-ui/react';
 import { BiWalletAlt as Wallet } from 'react-icons/bi';
@@ -27,6 +27,7 @@ const AddFunds = () => {
           title="On Ramp"
           subtext="Add using Fiat"
           isFirstTime
+          onClick={() => {}}
         />
         <Text>OR</Text>
         <BigIconButton
@@ -34,6 +35,7 @@ const AddFunds = () => {
           title="Transfer"
           subtext="From existing account"
           isFirstTime={false}
+          onClick={() => {}}
         />
       </Flex>
       <Flex
