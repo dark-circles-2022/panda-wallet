@@ -13,6 +13,8 @@ import PingGaurdian from './screens/onboarding/PingGaurdian';
 import AddFunds from './screens/onboarding/AddFunds';
 import WooHoo from './screens/onboarding/WooHoo';
 import Dashboard from './screens/Dashboard';
+import ConfirmSocial from './screens/onboarding/ConfirmSocial';
+import SocialLogin from './screens/onboarding/SocialLogin';
 
 const container = document.getElementById('root');
 if (!container) throw new Error('Failed to find the root element');
@@ -28,29 +30,39 @@ const router = createBrowserRouter(
         path="/"
         element={<Onboard />}
       />
+
       {/* Create */}
       <Route
         path="create"
         element={<Outlet />}
       >
+        {/* Social Login */}
+        <Route
+          path="social-login"
+          element={<SocialLogin />}
+        />
         <Route
           path=""
-          element={<SetPassword />}
+          element={<ConfirmSocial />}
         />
         <Route
           path="1"
-          element={<AddGuardians />}
+          element={<SetPassword />}
         />
         <Route
           path="2"
-          element={<WalletName />}
+          element={<AddGuardians />}
         />
         <Route
           path="3"
-          element={<AddFunds />}
+          element={<WalletName />}
         />
         <Route
           path="4"
+          element={<AddFunds />}
+        />
+        <Route
+          path="done"
           element={<WooHoo />}
         />
       </Route>
@@ -59,6 +71,11 @@ const router = createBrowserRouter(
         path="recover"
         element={<Outlet />}
       >
+        {/* Social Login */}
+        <Route
+          path="social-login"
+          element={<SocialLogin />}
+        />
         <Route
           path=""
           element={<WalletSelect />}
@@ -79,7 +96,7 @@ const router = createBrowserRouter(
       />
       {/* Test */}
       <Route
-        path="test"
+        path="done"
         element={<WooHoo />}
       />
     </Route>

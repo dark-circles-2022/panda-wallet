@@ -19,10 +19,14 @@ export const PrimaryButton: FC<HTMLAttributes<HTMLButtonElement> & ChakraProps &
       size={'sm'}
       backgroundColor={bg ? bg : 'black'}
       rightIcon={
-        <Icon
-          ml="0.75rem"
-          as={icon}
-        />
+        icon ? (
+          <Icon
+            ml="0.75rem"
+            as={icon}
+          />
+        ) : (
+          <></>
+        )
       }
       borderRadius={'full'}
       _hover={{ background: bg ? bg : 'black' }}
@@ -52,10 +56,14 @@ export const OutlineButton: FC<HTMLAttributes<HTMLButtonElement> & ChakraProps &
       fontWeight="400"
       fontSize="0.75rem"
       rightIcon={
-        <Icon
-          ml="0.75rem"
-          as={icon}
-        />
+        icon ? (
+          <Icon
+            ml="0.75rem"
+            as={icon}
+          />
+        ) : (
+          <></>
+        )
       }
       {...props}
     >
@@ -74,10 +82,14 @@ export const SecondaryButton: FC<HTMLAttributes<HTMLButtonElement> & ChakraProps
     <Button
       size={'sm'}
       rightIcon={
-        <Icon
-          ml="0.75rem"
-          as={icon}
-        />
+        icon ? (
+          <Icon
+            ml="0.75rem"
+            as={icon}
+          />
+        ) : (
+          <></>
+        )
       }
       borderRadius={'full'}
       backgroundColor={bg ? bg : 'input.bg.default'}

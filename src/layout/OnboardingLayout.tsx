@@ -14,7 +14,7 @@ const OnboardingLayout = ({
   heading,
   currentStep,
   totalSteps,
-  navigateTo = '/',
+  navigateTo,
   nextPrompt = 'next',
   nextIcon = Arrow as any,
   isBackButtonVisible = true,
@@ -55,7 +55,7 @@ const OnboardingLayout = ({
         content={warning ?? 'You will lose all progress if you leave this page.'}
         isOpen={isOpen}
         onClose={onClose}
-        onConfirm={() => navigate(navigateTo)}
+        onConfirm={() => navigate(navigateTo ?? '')}
       />
 
       <Box
@@ -149,6 +149,7 @@ const OnboardingLayout = ({
             cursor={'pointer'}
             mr="0.5rem"
             mb="0.5rem"
+            mt="0.25rem"
           >
             need help?
           </Button>
