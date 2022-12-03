@@ -1,7 +1,7 @@
 import { Box, Flex, Text } from '@chakra-ui/react';
 import ButtonIcon from '../ButtonIcon';
 import { MdClose as Close } from 'react-icons/md';
-import { BiCloset } from 'react-icons/bi';
+import { FaRegHandshake as Handshake } from 'react-icons/fa';
 import Notification from '../common/Notification';
 
 // @ts-ignore
@@ -37,16 +37,18 @@ const Notifications = ({ isOpen, onClose }) => {
           </Flex>
           <Flex direction="column">
             <Notification
-              icon={BiCloset as any}
-              title={'test test test'}
-              subtext={'loremipsum doloer monez'}
-              cta={'revieve'}
+              icon={Handshake as any}
+              title={'Recover Wallet - Harsh'}
+              subtext={'Harsh wants to recover their wallet, review request'}
+              cta={'review'}
+              scheme={'danger'}
             />
             <Notification
-              icon={BiCloset as any}
-              title={'test test test'}
-              subtext={'loremipsum doloer monez'}
-              cta={'revieve'}
+              icon={Handshake as any}
+              title={'Wallet Recovered - Harsh'}
+              subtext={"You helped your fren. Harsh's wallet has been recovered"}
+              cta={'details'}
+              scheme={'success'}
             />
           </Flex>
         </Box>
