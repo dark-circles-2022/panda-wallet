@@ -103,6 +103,7 @@ root.render(
         borderRadius={'1.25rem'}
         overflow="hidden"
         boxShadow="0px 4px 40px rgba(0, 0, 0, 0.1)"
+        position={'relative'}
       >
         <RouterProvider router={router} />
       </Box>
