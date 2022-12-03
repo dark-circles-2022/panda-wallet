@@ -39,6 +39,7 @@ const colors = {
     },
   },
   danger: '#FF7070',
+  success: '#23ff48',
 };
 const styles = {
   global: (props: StyleFunctionProps) => ({
