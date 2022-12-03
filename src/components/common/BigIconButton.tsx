@@ -24,9 +24,12 @@ const BigIconButton = ({
       h="6rem"
       py="0.75rem"
       px="1rem"
+      my="0.5rem"
       border="2px solid"
       borderColor={'icon.border.50'}
       onClick={() => onClick()}
+      bgColor={'icon.bg.ghost.default'}
+      _hover={{ bgColor: 'icon.bg.ghost.hover' }}
     >
       {isFirstTime && (
         <Text
@@ -46,11 +49,12 @@ const BigIconButton = ({
       <Icon
         as={icon}
         boxSize={'3rem'}
-        mr="1rem"
+        mr="2rem"
       />
       <Box
-        w="60%"
+        w="50%"
         overflowWrap={'break-word'}
+        textAlign="left"
       >
         <Text fontSize={'1.5rem'}>{title}</Text>
         <Text

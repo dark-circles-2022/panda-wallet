@@ -20,10 +20,20 @@ const PasteInput = ({ label }: { label: string }) => {
       </Text>
       <InputGroup>
         <Input
-          type="text"
-          border="2px solid"
-          borderColor="icon.border.50"
-          placeholder="Enter password"
+          border={'2px solid'}
+          borderColor={'icon.border.50'}
+          type={'text'}
+          bg="input.bg.default"
+          _focus={{
+            bg: 'input.bg.focus',
+            border: '2px solid',
+            borderColor: 'icon.border.50',
+          }}
+          _hover={{
+            bg: 'input.bg.focus',
+          }}
+          placeholder="Vitalik Buterin"
+          _placeholder={{ color: 'text.placeholder' }}
           value={value}
           onChange={(e) => setValue(e.target.value)}
           borderRadius={'full'}
