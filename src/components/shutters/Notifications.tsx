@@ -1,55 +1,58 @@
-import {
-  Drawer,
-  DrawerBody,
-  DrawerCloseButton,
-  DrawerContent,
-  DrawerHeader,
-  DrawerOverlay,
-  useDisclosure,
-  Input,
-  Flex,
-  Text,
-} from '@chakra-ui/react';
+import { Box, Flex, Text } from '@chakra-ui/react';
 import ButtonIcon from '../ButtonIcon';
-import { IoIosClose as Close } from 'react-icons/io';
-import { MutableRefObject } from 'react';
+import { MdClose as Close } from 'react-icons/md';
+import { BiCloset } from 'react-icons/bi';
+import Notification from '../common/Notification';
 
 // @ts-ignore
-function Notifications({ isOpen, onClose, notifRef }) {
+const Notifications = ({ isOpen, onClose }) => {
   return (
     <>
-      <Drawer
-        isOpen={isOpen}
-        placement="right"
-        onClose={onClose}
-        finalFocusRef={notifRef}
-      >
-        <DrawerOverlay />
-        <DrawerContent>
-          <DrawerCloseButton />
-          <DrawerHeader>
-            <Flex>
-              <Text
-                fontSize={'0.8rem'}
-                fontWeight={600}
-              >
-                Notifications
-              </Text>
-              <ButtonIcon
-                displayIcon={Close as any}
-                variant={'semi-solid'}
-                ariaLabel={'Close'}
-              />
-            </Flex>
-          </DrawerHeader>
-
-          <DrawerBody>
-            <Input placeholder="Type here..." />
-          </DrawerBody>
-        </DrawerContent>
-      </Drawer>
+      {isOpen && (
+        <Box
+          position={'absolute'}
+          borderTopRadius={'1rem'}
+          h="31rem"
+          w="full"
+          borderTop={'2px solid'}
+          borderColor="icon.border.50"
+          bgColor={'white'}
+          zIndex={100}
+          bottom={0}
+          pb="5rem"
+        >
+          <Flex
+            p="1rem"
+            justify={'space-between'}
+            align="center"
+          >
+            <Text>Notifications</Text>
+            <ButtonIcon
+              displayIcon={Close as any}
+              variant={'semi-solid'}
+              ariaLabel={'close'}
+              boxSize="1.5rem"
+              onClick={onClose}
+            />
+          </Flex>
+          <Flex direction="column">
+            <Notification
+              icon={BiCloset as any}
+              title={'test test test'}
+              subtext={'loremipsum doloer monez'}
+              cta={'revieve'}
+            />
+            <Notification
+              icon={BiCloset as any}
+              title={'test test test'}
+              subtext={'loremipsum doloer monez'}
+              cta={'revieve'}
+            />
+          </Flex>
+        </Box>
+      )}
     </>
   );
-}
+};
 
 export default Notifications;

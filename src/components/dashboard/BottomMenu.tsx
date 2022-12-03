@@ -22,6 +22,9 @@ const BottomMenu = () => {
       px={'1rem'}
       py={'0.75rem'}
       w="full"
+      zIndex={100}
+      borderTop="2px solid"
+      borderColor={'icon.border.50'}
     >
       {menuItems.map((item, index) => (
         <GridItem

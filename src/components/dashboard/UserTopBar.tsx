@@ -3,7 +3,7 @@ import { BiUser as User, BiBell } from 'react-icons/bi';
 import ButtonIcon from '../ButtonIcon';
 
 // @ts-ignore
-const UserTopBar = ({ notifRef, onOpen }) => {
+const UserTopBar = ({ onOpen }) => {
   const user = {
     icon: User as any,
     name: 'Pushkar',
@@ -21,6 +21,7 @@ const UserTopBar = ({ notifRef, onOpen }) => {
       position={'absolute'}
       top={0}
       bgColor={'white'}
+      zIndex={100}
     >
       <Flex
         align={'center'}

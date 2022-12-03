@@ -9,6 +9,7 @@ const AssetsList = ({ balances }: { balances: IbalancesAPI[] | undefined }) => {
       overflow={'scroll'}
       px="0.5rem"
       mt={'1rem'}
+      mb="5rem"
     >
       <Text
         ml="1rem"
