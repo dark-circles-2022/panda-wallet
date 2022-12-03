@@ -10,10 +10,16 @@ const colors = {
   bg: {
     onboarding: 'black',
   },
+  input: {
+    bg: {
+      default: '#F7F7F7',
+      focus: '#F2F2F2',
+    },
+  },
   icon: {
     bg: {
       ghost: {
-        default: '#F5F5F5',
+        default: '#FBFBFB',
         hover: '#E5E5E5',
       },
     },

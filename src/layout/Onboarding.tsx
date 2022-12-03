@@ -69,44 +69,36 @@ const OnboardingLayout = ({
           justify="space-between"
           align={'center'}
           mb="0.75rem"
-          px={'0.75rem'}
         >
-          {/* {isBackButtonVisible && <BackButton />} */}
           {isBackButtonVisible && (
             <>
               <ButtonIcon
                 ariaLabel="Back"
                 variant="semi-solid"
-                // displayIcon={BackIcon as any}
                 displayIcon={HiArrowLeft as any}
+                w="2rem"
+                h="2rem"
+                p="0.5rem"
               />
-              {/* <ButtonIcon
-                ariaLabel="Back"
-                variant="solid"
-                displayIcon={HiArrowLeft as any}
-              />
-              <ButtonIcon
-                ariaLabel="Back"
-                variant="outline"
-                displayIcon={HiArrowLeft as any}
-              />
-              <ButtonIcon
-                ariaLabel="Back"
-                displayIcon={HiArrowLeft as any}
-              /> */}
             </>
           )}
-          <Text fontWeight={500}>{heading}</Text>
+          <Text
+            fontWeight={500}
+            fontSize="1rem"
+            color="text.main.900"
+          >
+            {heading}
+          </Text>
           {isStepNumberVisible && (
             <CircularProgress
               value={(currentStep / totalSteps) * 100}
               color="black"
-              size="10"
+              size="2rem"
             >
               <CircularProgressLabel
-                fontSize={'0.75rem'}
-                fontWeight={800}
-                color={'text.main.900'}
+                fontSize={'0.625rem'}
+                fontWeight={600}
+                color={'text.main.100'}
               >
                 {currentStep}/{totalSteps}
               </CircularProgressLabel>
