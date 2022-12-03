@@ -1,7 +1,6 @@
 import { Box, ChakraProvider, ColorModeScript } from '@chakra-ui/react';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom/client';
-import { App } from './App';
 import { RouterProvider, createMemoryRouter, createRoutesFromElements, Route, Routes, Outlet } from 'react-router';
 import Onboard from './screens/Onboard';
 import SetPassword from './screens/SetPassword';
