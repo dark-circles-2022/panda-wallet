@@ -10,6 +10,8 @@ import theme from './theme';
 import { createBrowserRouter } from 'react-router-dom';
 import WalletSelect from './screens/WalletSelectRecovery';
 import PingGaurdian from './screens/PingGaurdian';
+import AddFunds from './screens/AddFunds';
+import WooHoo from './screens/WooHoo';
 
 const container = document.getElementById('root');
 if (!container) throw new Error('Failed to find the root element');
@@ -28,21 +30,51 @@ const router = createBrowserRouter(
       {/* Create */}
       <Route
         path="create"
-        element={<SetPassword />}
+        element={<Outlet />}
       >
         <Route
+          path=""
+          element={<SetPassword />}
+        />
+        <Route
           path="1"
-          element={<WalletName />}
+          element={<AddGuardians />}
         />
         <Route
           path="2"
-          element={<AddGuardians />}
+          element={<WalletName />}
+        />
+        <Route
+          path="3"
+          element={<AddFunds />}
+        />
+        <Route
+          path="4"
+          element={<WooHoo />}
         />
       </Route>
       {/* Recover */}
       <Route
+        path="recover"
+        element={<Outlet />}
+      >
+        <Route
+          path=""
+          element={<WalletSelect />}
+        />
+        <Route
+          path="1"
+          element={<PingGaurdian />}
+        />
+        <Route
+          path="2"
+          element={<WooHoo />}
+        />
+      </Route>
+      {/* Test */}
+      <Route
         path="test"
-        element={<PingGaurdian />}
+        element={<WooHoo />}
       />
     </Route>
   )

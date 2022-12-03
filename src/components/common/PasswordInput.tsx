@@ -52,7 +52,7 @@ const PasswordInput = ({
         <Input
           border={'2px solid'}
           borderColor={error ? '#FF7070a0' : 'icon.border.50'}
-          type={!shown ? 'text' : 'password'}
+          type={shown ? 'text' : 'password'}
           bg="input.bg.default"
           _focus={{
             bg: 'input.bg.focus',
@@ -76,7 +76,7 @@ const PasswordInput = ({
           h={'3rem'}
         >
           <ButtonIcon
-            displayIcon={shown ? Hide : Show}
+            displayIcon={!shown ? Hide : Show}
             ariaLabel="Toggle Show Password"
             variant="semi-solid"
             onClick={handleClickShowPassword}

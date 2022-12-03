@@ -1,7 +1,5 @@
 import OnboardingLayout from '../layout/OnboardingLayout';
-import PrimaryButton from '../components/common/Button';
 import { Box, Flex, Text } from '@chakra-ui/react';
-import { FiArrowUpRight as Arrow } from 'react-icons/fi';
 import PasteInput from '../components/common/PasteInput';
 
 const AddGuardians = () => {
@@ -15,6 +13,7 @@ const AddGuardians = () => {
       isBackButtonVisible
       isStepNumberVisible
       canSkip={false}
+      navigateTo={'/recover/2'}
     >
       <Flex direction={'column'}>
         <PasteInput label={'Fren 1'} />
@@ -44,30 +43,6 @@ const AddGuardians = () => {
           You can also register your other ethereum accounts as frens.
         </Text>
       </Box>
-      {/* To be link to help */}
-      <Text
-        textDecor={'underline'}
-        fontSize={'0.7rem'}
-        color="blackAlpha.600"
-        position={'absolute'}
-        bottom={'3.75rem'}
-        right={'2rem'}
-        cursor={'pointer'}
-      >
-        need help?
-      </Text>
-      <Flex
-        position={'absolute'}
-        bottom={'1.5rem'}
-        right={'1.5rem'}
-      >
-        <PrimaryButton
-          icon={Arrow as any}
-          prompt={'next'}
-          color={'white'}
-          bg={'black'}
-        />
-      </Flex>
     </OnboardingLayout>
   );
 };

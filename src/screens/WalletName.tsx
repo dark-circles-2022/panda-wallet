@@ -15,6 +15,7 @@ const WalletName = () => {
       isBackButtonVisible
       isStepNumberVisible
       canSkip={false}
+      navigateTo={'/create/3'}
     >
       <Flex direction={'column'}>
         <Box
@@ -68,30 +69,6 @@ const WalletName = () => {
           <strong>quickly find and remember</strong> the wallet address.
         </Text>
       </Box>
-      {/* To be link to help */}
-      <Text
-        textDecor={'underline'}
-        fontSize={'0.7rem'}
-        color="blackAlpha.600"
-        position={'absolute'}
-        bottom={'3.75rem'}
-        right={'2rem'}
-        cursor={'pointer'}
-      >
-        need help?
-      </Text>
-      <Flex
-        position={'absolute'}
-        bottom={'1.5rem'}
-        right={'1.5rem'}
-      >
-        <PrimaryButton
-          icon={Arrow as any}
-          prompt={'next'}
-          color={'white'}
-          bg={'black'}
-        />
-      </Flex>
     </OnboardingLayout>
   );
 };

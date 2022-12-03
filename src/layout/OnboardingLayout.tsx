@@ -15,6 +15,8 @@ const OnboardingLayout = ({
   currentStep,
   totalSteps,
   navigateTo = '/',
+  nextPrompt = 'next',
+  nextIcon = Arrow as any,
   isBackButtonVisible = true,
   isStepNumberVisible = true,
   canSkip = false,
@@ -27,6 +29,8 @@ const OnboardingLayout = ({
   currentStep: number;
   totalSteps: number;
   navigateTo?: string;
+  nextPrompt?: string;
+  nextIcon?: any;
   isBackButtonVisible?: boolean;
   isStepNumberVisible?: boolean;
   canSkip?: boolean;
@@ -165,8 +169,8 @@ const OnboardingLayout = ({
               <PrimaryButton
                 justifySelf="end"
                 ml="auto"
-                icon={Arrow as any}
-                prompt={'next'}
+                icon={nextIcon}
+                prompt={nextPrompt}
                 color={'white'}
                 onClick={() => navigate(navigateTo)}
               />

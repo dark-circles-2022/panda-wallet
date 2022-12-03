@@ -23,6 +23,7 @@ const SetPassword = () => {
       isBackButtonVisible
       isStepNumberVisible
       canSkip={false}
+      navigateTo={'/create/1'}
     >
       <Flex direction={'column'}>
         <PasswordInput

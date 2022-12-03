@@ -31,7 +31,7 @@ const Onboard = () => {
           subtext="Shiny new wallet"
           isFirstTime
           onClick={() => {
-            navigate('/create/1');
+            navigate('/create');
           }}
         />
 
@@ -42,7 +42,7 @@ const Onboard = () => {
           title="Recover"
           subtext="Recover an existing wallet"
           isFirstTime={false}
-          onClick={() => navigate('/recover/1')}
+          onClick={() => navigate('/recover')}
         />
       </Flex>
     </OnboardingLayout>

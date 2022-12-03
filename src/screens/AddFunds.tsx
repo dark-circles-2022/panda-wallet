@@ -16,6 +16,7 @@ const AddFunds = () => {
       isBackButtonVisible
       isStepNumberVisible
       canSkip
+      navigateTo="/create/4"
     >
       <Flex
         direction={'column'}
@@ -36,18 +37,6 @@ const AddFunds = () => {
           subtext="From existing account"
           isFirstTime={false}
           onClick={() => {}}
-        />
-      </Flex>
-      <Flex
-        position={'absolute'}
-        bottom={'1.5rem'}
-        right={'1.5rem'}
-      >
-        <PrimaryButton
-          icon={Check as any}
-          prompt={'finish'}
-          color={'white'}
-          bg={'black'}
         />
       </Flex>
     </OnboardingLayout>

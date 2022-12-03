@@ -24,6 +24,7 @@ const WalletSelect = () => {
       isBackButtonVisible
       isStepNumberVisible
       canSkip={false}
+      navigateTo={'/recover/1'}
     >
       <VStack {...group}>
         <Text
