@@ -1,5 +1,5 @@
-import { Box, Text, useDisclosure } from '@chakra-ui/react';
-import { useEffect, useState, useRef } from 'react';
+import { Box, useDisclosure } from '@chakra-ui/react';
+import { useEffect, useState } from 'react';
 import { balancesAPI } from '../config/axiosConfig';
 import { BigNumber } from 'bignumber.js';
 import { formattedNum } from '../utils/numberFormatter';
@@ -16,7 +16,6 @@ const Dashboard = () => {
 
   const [balances, setBalances] = useState<IbalancesAPI[]>();
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const notifRef = useRef();
 
   useEffect(() => {
     balancesAPI
@@ -54,14 +53,10 @@ const Dashboard = () => {
       w="full"
       bgColor={'white'}
     >
-      <UserTopBar
-        notifRef={notifRef}
-        onOpen={onOpen}
-      />
+      <UserTopBar onOpen={onOpen} />
       <Notifications
         isOpen={isOpen}
         onClose={onClose}
-        notifRef={notifRef}
       />
       <UserInfoCard />
       <AssetsList balances={balances} />

@@ -3,7 +3,7 @@ import { BiUser as User, BiBell } from 'react-icons/bi';
 import ButtonIcon from '../ButtonIcon';
 
 // @ts-ignore
-const UserTopBar = ({ notifRef, onOpen }) => {
+const UserTopBar = ({ onOpen }) => {
   const user = {
     icon: User as any,
     name: 'Pushkar',
