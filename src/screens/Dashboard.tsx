@@ -1,5 +1,5 @@
-import { Box, Text } from '@chakra-ui/react';
-import { useEffect, useState } from 'react';
+import { Box, Text, useDisclosure } from '@chakra-ui/react';
+import { useEffect, useState, useRef } from 'react';
 import { balancesAPI } from '../config/axiosConfig';
 import { BigNumber } from 'bignumber.js';
 import { formattedNum } from '../utils/numberFormatter';
@@ -8,12 +8,15 @@ import UserTopBar from '../components/dashboard/UserTopBar';
 import UserInfoCard from '../components/dashboard/UserInfoCard';
 import { IbalancesAPI } from '../interfaces/IbalancesAPI';
 import AssetsList from '../components/dashboard/AssetsList';
+import Notifications from '../components/shutters/Notifications';
 
 const Dashboard = () => {
   const chain_id = 80001;
   const address = '0x657D3C03e450E4815f3411Aa26713A2A90e9Ad83';
 
   const [balances, setBalances] = useState<IbalancesAPI[]>();
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const notifRef = useRef();
 
   useEffect(() => {
     balancesAPI
@@ -44,13 +47,22 @@ const Dashboard = () => {
       })
       .catch((err) => console.log(err));
   }, []);
+
   return (
     <Box
       h="full"
       w="full"
       bgColor={'white'}
     >
-      <UserTopBar />
+      <UserTopBar
+        notifRef={notifRef}
+        onOpen={onOpen}
+      />
+      <Notifications
+        isOpen={isOpen}
+        onClose={onClose}
+        notifRef={notifRef}
+      />
       <UserInfoCard />
       <AssetsList balances={balances} />
       <BottomMenu />

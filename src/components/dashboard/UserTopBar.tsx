@@ -2,7 +2,8 @@ import { Flex, Icon, Box, Text } from '@chakra-ui/react';
 import { BiUser as User, BiBell } from 'react-icons/bi';
 import ButtonIcon from '../ButtonIcon';
 
-const UserTopBar = () => {
+// @ts-ignore
+const UserTopBar = ({ notifRef, onOpen }) => {
   const user = {
     icon: User as any,
     name: 'Pushkar',
@@ -48,6 +49,7 @@ const UserTopBar = () => {
         displayIcon={BiBell as any}
         variant="semi-solid"
         ariaLabel="notifications"
+        onClick={onOpen}
       />
     </Flex>
   );
