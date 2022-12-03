@@ -20,7 +20,7 @@ const WalletSelect = () => {
       title="Recover"
       subtext="We found your wallets!"
       currentStep={1}
-      totalSteps={3}
+      totalSteps={2}
       isBackButtonVisible
       isStepNumberVisible
       canSkip={false}
