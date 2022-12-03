@@ -4,7 +4,7 @@ import PrimaryButton from '../components/common/Button';
 import { Box, Flex, Text, VStack } from '@chakra-ui/react';
 import { FiArrowUpRight as Arrow } from 'react-icons/fi';
 
-const CreateWallet = () => {
+const SetPassword = () => {
   return (
     <OnboardingLayout
       title="Create"
@@ -66,4 +66,4 @@ const CreateWallet = () => {
   );
 };
 
-export default CreateWallet;
+export default SetPassword;

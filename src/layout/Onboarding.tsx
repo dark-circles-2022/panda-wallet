@@ -2,6 +2,7 @@ import React from 'react';
 import { Box, CircularProgress, CircularProgressLabel, Flex, Text } from '@chakra-ui/react';
 import ButtonIcon from '../components/ButtonIcon';
 import { HiArrowLeft } from 'react-icons/hi';
+import { useNavigate } from 'react-router';
 
 const OnboardingLayout = ({
   title,
@@ -24,6 +25,8 @@ const OnboardingLayout = ({
   canSkip?: boolean;
   children?: React.ReactNode;
 }) => {
+  const navigate = useNavigate();
+
   return (
     <Flex
       position={'relative'}
@@ -79,6 +82,7 @@ const OnboardingLayout = ({
                 w="2rem"
                 h="2rem"
                 p="0.5rem"
+                onClick={() => navigate(-1)}
               />
             </>
           )}

@@ -5,12 +5,15 @@ import { BiWalletAlt as Wallet } from 'react-icons/bi';
 import { AiOutlineCloudDownload as Recover } from 'react-icons/ai';
 import { FiArrowUpRight as Arrow } from 'react-icons/fi';
 import BigIconButton from '../components/common/BigIconButton';
+import { redirect, useNavigate } from 'react-router';
 
 const Onboard = () => {
+  const navigate = useNavigate();
+
   return (
     <OnboardingLayout
       title="Hey! 👋"
-      subtext="Let’s get you all settled"
+      subtext="Let's get you all settled"
       currentStep={1}
       totalSteps={5}
       isBackButtonVisible
@@ -27,13 +30,21 @@ const Onboard = () => {
           title="Create"
           subtext="Shiny new wallet"
           isFirstTime
+          // @ts-ignore
+          onClick={() => {
+            navigate('/create/1');
+            console.log('clicked');
+          }}
         />
+
         <Text>OR</Text>
+
         <BigIconButton
           icon={Recover as any}
           title="Recover"
           subtext="Recover an existing wallet"
           isFirstTime={false}
+          onClick={() => navigate('/recover/1')}
         />
       </Flex>
     </OnboardingLayout>

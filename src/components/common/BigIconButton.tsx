@@ -5,16 +5,18 @@ const BigIconButton = ({
   title,
   subtext,
   isFirstTime,
+  onClick,
 }: {
   icon: any;
   title: string;
   subtext: string;
   isFirstTime: boolean;
+  onClick?: () => void;
 }) => {
   return (
-    <Button
+    <Flex
       cursor={'pointer'}
-      as={Flex}
+      as={Button}
       position="relative"
       justify="center"
       align="center"
@@ -25,6 +27,8 @@ const BigIconButton = ({
       border="2px solid"
       borderColor={'icon.border.50'}
       m="1rem auto"
+      // @ts-ignore
+      onClick={() => onClick() && console.log('clicked')}
     >
       {isFirstTime && (
         <Text
@@ -59,7 +63,7 @@ const BigIconButton = ({
           {subtext}
         </Text>
       </Box>
-    </Button>
+    </Flex>
   );
 };
 
