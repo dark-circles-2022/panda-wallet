@@ -19,6 +19,7 @@ const Onboard = () => {
       isBackButtonVisible={false}
       isStepNumberVisible
       canSkip={false}
+      navigateTo={''}
     >
       <Flex
         direction={'column'}
