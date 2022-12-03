@@ -8,6 +8,7 @@ import WalletName from './screens/WalletName';
 import BigIconButton from './components/common/BigIconButton';
 import { SiPastebin } from 'react-icons/si';
 import AddFunds from './screens/AddFunds';
+import Onboard from './screens/Onboard';
 
 export const App = () => (
   <ChakraProvider theme={theme}>
@@ -34,6 +35,7 @@ export const App = () => (
       {/* <AddGuardians /> */}
       {/* <WalletName /> */}
       {/* <AddFunds /> */}
+      <Onboard />
     </Box>
   </ChakraProvider>
 );
