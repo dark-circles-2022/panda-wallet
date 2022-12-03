@@ -1,4 +1,5 @@
-import { Button, Icon, Text } from '@chakra-ui/react';
+import { Button, ChakraProps, Icon } from '@chakra-ui/react';
+import { FC } from 'react';
 
 interface Props {
   icon: any;
@@ -7,7 +8,7 @@ interface Props {
   bg: string;
 }
 
-const PrimaryButton = ({ icon, prompt, color, bg }: Props) => {
+const PrimaryButton: FC<ChakraProps & Props> = ({ icon, prompt, color, bg, ...props }) => {
   return (
     <Button
       size={'sm'}
@@ -16,6 +17,8 @@ const PrimaryButton = ({ icon, prompt, color, bg }: Props) => {
       rightIcon={<Icon as={icon} />}
       borderRadius={'full'}
       _hover={{ background: bg }}
+      fontWeight="400"
+      {...props}
     >
       {prompt}
     </Button>

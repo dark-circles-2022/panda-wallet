@@ -1,4 +1,4 @@
-import OnboardingLayout from '../layout/Onboarding';
+import OnboardingLayout from '../layout/OnboardingLayout';
 import PrimaryButton from '../components/common/Button';
 import { Flex, Text } from '@chakra-ui/react';
 import { BiWalletAlt as Wallet } from 'react-icons/bi';
@@ -24,16 +24,15 @@ const Onboard = () => {
         direction={'column'}
         justify="space-around"
         align={'center'}
+        gap="4"
       >
         <BigIconButton
           icon={Wallet as any}
           title="Create"
           subtext="Shiny new wallet"
           isFirstTime
-          // @ts-ignore
           onClick={() => {
             navigate('/create/1');
-            console.log('clicked');
           }}
         />
 

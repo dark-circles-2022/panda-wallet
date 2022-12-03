@@ -11,7 +11,7 @@ const BigIconButton = ({
   title: string;
   subtext: string;
   isFirstTime: boolean;
-  onClick?: () => void;
+  onClick: () => void;
 }) => {
   return (
     <Flex
@@ -20,15 +20,13 @@ const BigIconButton = ({
       position="relative"
       justify="center"
       align="center"
-      w="80%"
+      w="full"
       h="6rem"
       py="0.75rem"
       px="1rem"
       border="2px solid"
       borderColor={'icon.border.50'}
-      m="1rem auto"
-      // @ts-ignore
-      onClick={() => onClick() && console.log('clicked')}
+      onClick={() => onClick()}
     >
       {isFirstTime && (
         <Text
