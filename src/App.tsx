@@ -5,6 +5,9 @@ import theme from './theme';
 import CreateWallet from './screens/CreateWallet';
 import AddGuardians from './screens/AddGuardians';
 import WalletName from './screens/WalletName';
+import BigIconButton from './components/common/BigIconButton';
+import { SiPastebin } from 'react-icons/si';
+import AddFunds from './screens/AddFunds';
 
 export const App = () => (
   <ChakraProvider theme={theme}>
@@ -29,7 +32,8 @@ export const App = () => (
       /> */}
       {/* <CreateWallet /> */}
       {/* <AddGuardians /> */}
-      <WalletName />
+      {/* <WalletName /> */}
+      <AddFunds />
     </Box>
   </ChakraProvider>
 );

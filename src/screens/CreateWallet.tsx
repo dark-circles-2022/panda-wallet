@@ -35,7 +35,7 @@ const CreateWallet = () => {
           fontSize={'0.65rem'}
           color="blackAlpha.600"
         >
-          Passwords secure your wallet, they are unique for each device.
+          Passwords <strong>secure</strong> your wallet, they are <strong>unique for each device</strong>.
         </Text>
       </Box>
       {/* To be link to help */}
