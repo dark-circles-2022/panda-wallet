@@ -1,4 +1,4 @@
-import OnboardingLayout from '../layout/OnboardingLayout';
+import OnboardingLayout from '../../layout/OnboardingLayout';
 import { Box, Flex, Text, useRadio, useRadioGroup, VStack } from '@chakra-ui/react';
 
 const WalletSelect = () => {

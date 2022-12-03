@@ -1,6 +1,6 @@
-import OnboardingLayout from '../layout/OnboardingLayout';
+import OnboardingLayout from '../../layout/OnboardingLayout';
 import { Box, Flex, Text } from '@chakra-ui/react';
-import PasteInput from '../components/common/PasteInput';
+import PasteInput from '../../components/common/PasteInput';
 
 const AddGuardians = () => {
   return (
