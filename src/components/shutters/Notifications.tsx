@@ -12,12 +12,14 @@ const Notifications = ({ isOpen, onClose }) => {
         <Box
           position={'absolute'}
           borderTopRadius={'1rem'}
-          h="calc(100vh - 5rem)"
+          h="31rem"
           w="full"
           borderTop={'2px solid'}
           borderColor="icon.border.50"
           bgColor={'white'}
-          zIndex={10}
+          zIndex={100}
+          bottom={0}
+          pb="5rem"
         >
           <Flex
             p="1rem"

@@ -21,6 +21,7 @@ const UserTopBar = ({ onOpen }) => {
       position={'absolute'}
       top={0}
       bgColor={'white'}
+      zIndex={100}
     >
       <Flex
         align={'center'}

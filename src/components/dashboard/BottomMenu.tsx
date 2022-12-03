@@ -22,7 +22,7 @@ const BottomMenu = () => {
       px={'1rem'}
       py={'0.75rem'}
       w="full"
-      zIndex={9999}
+      zIndex={100}
       borderTop="2px solid"
       borderColor={'icon.border.50'}
     >

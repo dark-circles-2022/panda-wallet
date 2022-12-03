@@ -52,6 +52,7 @@ const Dashboard = () => {
       h="full"
       w="full"
       bgColor={'white'}
+      overflow={'auto'}
     >
       <UserTopBar onOpen={onOpen} />
       <Notifications
