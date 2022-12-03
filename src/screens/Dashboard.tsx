@@ -1,20 +1,12 @@
-import { Text } from '@chakra-ui/react';
+import { Box, Text } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 import { balancesAPI } from '../config/axiosConfig';
 import { BigNumber } from 'bignumber.js';
 import { formattedNum } from '../utils/numberFormatter';
-
-interface IbalancesAPI {
-  balance: string;
-  balance_24h: string;
-  // contract_decimals: number;
-  contract_name: string;
-  contract_ticker_symbol: string;
-  logo_url: string;
-  price_usd: string;
-  change_24h_p: string;
-  // quote: number;
-}
+import BottomMenu from '../components/dashboard/BottomMenu';
+import UserTopBar from '../components/dashboard/UserTopBar';
+import UserInfoCard from '../components/dashboard/UserInfoCard';
+import { IbalancesAPI } from '../interfaces/IbalancesAPI';
 
 const Dashboard = () => {
   const chain_id = 80001;
@@ -26,7 +18,6 @@ const Dashboard = () => {
     balancesAPI
       .get(`/${chain_id}/address/${address}/balances_v2/`)
       .then((res) => {
-        // console.log(res.data.data.items);
         const balanceData = res.data.data.items.map((asset: any) => {
           const multiplier = new BigNumber(10 ** asset.contract_decimals);
           const balance = formattedNum(new BigNumber(asset.balance).div(multiplier).toString());
@@ -52,7 +43,18 @@ const Dashboard = () => {
       })
       .catch((err) => console.log(err));
   }, []);
-  return <Text>{JSON.stringify(balances)}</Text>;
-}
+  return (
+    <Box
+      h="full"
+      w="full"
+      bgColor={'white'}
+    >
+      <UserTopBar />
+      <UserInfoCard />
+
+      <BottomMenu />
+    </Box>
+  );
+};
 
 export default Dashboard;
