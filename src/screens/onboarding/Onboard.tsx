@@ -1,5 +1,5 @@
 import OnboardingLayout from '../../layout/OnboardingLayout';
-import { Flex, Text } from '@chakra-ui/react';
+import { Flex } from '@chakra-ui/react';
 import { BiWalletAlt as Wallet } from 'react-icons/bi';
 import { AiOutlineCloudDownload as Recover } from 'react-icons/ai';
 import BigIconButton from '../../components/common/BigIconButton';
@@ -35,7 +35,7 @@ const Onboard = () => {
           }}
         />
 
-        <Text>OR</Text>
+        <span>or</span>
 
         <BigIconButton
           icon={Recover as any}

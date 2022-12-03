@@ -61,6 +61,7 @@ const OnboardingLayout = ({
       <Box
         as="header"
         p="8"
+        pb="4"
       >
         <Text
           fontSize={'2rem'}
