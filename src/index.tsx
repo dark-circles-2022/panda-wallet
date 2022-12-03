@@ -8,6 +8,7 @@ import WalletName from './screens/WalletName';
 import AddGuardians from './screens/AddGuardians';
 import theme from './theme';
 import { createBrowserRouter } from 'react-router-dom';
+import WalletSelect from './screens/WalletSelectRecovery';
 
 const container = document.getElementById('root');
 if (!container) throw new Error('Failed to find the root element');
@@ -38,6 +39,10 @@ const router = createBrowserRouter(
         />
       </Route>
       {/* Recover */}
+      <Route
+        path="test"
+        element={<WalletSelect />}
+      />
     </Route>
   )
   // {

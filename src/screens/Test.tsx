@@ -1,4 +1,4 @@
-import OnboardingLayout from '../layout/Onboarding';
+import OnboardingLayout from '../layout/OnboardingLayout';
 
 const Test = () => {
   return (

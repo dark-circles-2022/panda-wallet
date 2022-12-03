@@ -1,4 +1,4 @@
-import OnboardingLayout from '../layout/Onboarding';
+import OnboardingLayout from '../layout/OnboardingLayout';
 import PrimaryButton from '../components/common/Button';
 import { Box, Flex, Text, useRadio, useRadioGroup, VStack } from '@chakra-ui/react';
 import { BiWalletAlt as Wallet } from 'react-icons/bi';
@@ -32,6 +32,13 @@ const WalletSelect = () => {
       canSkip={false}
     >
       <VStack {...group}>
+        <Text
+          textAlign={'left'}
+          w="full"
+          fontSize={'0.8rem'}
+        >
+          Select a wallet to recover
+        </Text>
         {wallets.map((wallet) => {
           const radio = getRadioProps({ wallet });
           return (
@@ -39,7 +46,16 @@ const WalletSelect = () => {
               key={wallet.name}
               {...radio}
             >
-              {`${wallet.name}/${wallet.address}`}
+              <Text fontWeight={'600'}>{wallet.name}</Text>
+              <Text
+                as="span"
+                fontSize={'0.8rem'}
+                fontWeight={400}
+                ml="0.5rem"
+                color={'text.main.200'}
+              >
+                {wallet.address}
+              </Text>
             </WalletOption>
           );
         })}
@@ -57,23 +73,27 @@ const WalletOption = (props) => {
   return (
     <Box as="label">
       <input {...input} />
-      <Box
+      <Flex
         {...checkbox}
         cursor="pointer"
         borderWidth="1px"
-        borderRadius="md"
-        boxShadow="md"
+        borderRadius="full"
+        border="2px solid"
+        borderColor={'icon.border.50'}
+        align={'end'}
         _checked={{
-          borderColor: 'icon.border.100',
+          borderColor: 'icon.border.200',
+          outline: 'none',
         }}
         _focus={{
           boxShadow: 'outline',
+          outline: 'none',
         }}
         px={5}
         py={3}
       >
         {props.children}
-      </Box>
+      </Flex>
     </Box>
   );
 };
