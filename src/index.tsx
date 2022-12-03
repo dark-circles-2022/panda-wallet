@@ -13,8 +13,7 @@ import PingGaurdian from './screens/onboarding/PingGaurdian';
 import AddFunds from './screens/onboarding/AddFunds';
 import WooHoo from './screens/onboarding/WooHoo';
 import Dashboard from './screens/Dashboard';
-import ConfirmSocial from './screens/onboarding/ConfirmSocial';
-import SocialLogin from './screens/onboarding/SocialLogin';
+import { Web3ContextProvider } from './contexts/Web3Context';
 
 const container = document.getElementById('root');
 if (!container) throw new Error('Failed to find the root element');
@@ -37,14 +36,14 @@ const router = createBrowserRouter(
         element={<Outlet />}
       >
         {/* Social Login */}
-        <Route
+        {/* <Route
           path="social-login"
           element={<SocialLogin />}
-        />
-        <Route
+        /> */}
+        {/* <Route
           path=""
           element={<ConfirmSocial />}
-        />
+        /> */}
         <Route
           path="1"
           element={<SetPassword />}
@@ -71,11 +70,6 @@ const router = createBrowserRouter(
         path="recover"
         element={<Outlet />}
       >
-        {/* Social Login */}
-        <Route
-          path="social-login"
-          element={<SocialLogin />}
-        />
         <Route
           path=""
           element={<WalletSelect />}
@@ -109,22 +103,24 @@ const router = createBrowserRouter(
 
 root.render(
   <React.StrictMode>
-    <ColorModeScript />
-    <ChakraProvider theme={theme}>
-      <Box
-        maxW="20rem"
-        maxH="35.5rem"
-        w="20rem"
-        h="35.5rem"
-        m="auto"
-        borderRadius={'1.25rem'}
-        overflow="hidden"
-        boxShadow="0px 4px 40px rgba(0, 0, 0, 0.1)"
-        position={'relative'}
-      >
-        <RouterProvider router={router} />
-      </Box>
-    </ChakraProvider>
+    <Web3ContextProvider>
+      <ColorModeScript />
+      <ChakraProvider theme={theme}>
+        <Box
+          maxW="20rem"
+          maxH="35.5rem"
+          w="20rem"
+          h="35.5rem"
+          m="auto"
+          borderRadius={'1.25rem'}
+          overflow="hidden"
+          boxShadow="0px 4px 40px rgba(0, 0, 0, 0.1)"
+          position={'relative'}
+        >
+          <RouterProvider router={router} />
+        </Box>
+      </ChakraProvider>
+    </Web3ContextProvider>
   </React.StrictMode>
 );
 

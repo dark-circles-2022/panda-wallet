@@ -7,6 +7,13 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,
+    "paths": {
+      "crypto-browserify": ["./node_modules/crypto-browserify"],
+      "crypto": ["./node_modules/crypto-browserify"],
+      "url": ["./node_modules/url"],
+      "stream-browserify": ["./node_modules/stream-browserify"],
+      "stream": ["./node_modules/stream"]
+    },
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
     "module": "esnext",
