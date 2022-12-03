@@ -13,7 +13,7 @@ const AddGuardians = () => {
       isBackButtonVisible
       isStepNumberVisible
       canSkip={false}
-      navigateTo={'/recover/2'}
+      navigateTo={'/create/2'}
     >
       <Flex direction={'column'}>
         <PasteInput label={'Fren 1'} />

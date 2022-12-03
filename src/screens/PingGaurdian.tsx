@@ -18,6 +18,7 @@ const PingGaurdian = () => {
       isBackButtonVisible
       isStepNumberVisible
       canSkip={false}
+      navigateTo={'/recover/2'}
     >
       <Flex direction="column">
         <Text
