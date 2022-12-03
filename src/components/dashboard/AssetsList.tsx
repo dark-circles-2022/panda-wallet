@@ -1,4 +1,4 @@
-import { Flex, Text } from '@chakra-ui/react';
+import { Flex, Skeleton, Text } from '@chakra-ui/react';
 import { IbalancesAPI } from '../../interfaces/IbalancesAPI';
 import TokenInfo from './TokenInfo';
 
@@ -17,6 +17,28 @@ const AssetsList = ({ balances }: { balances: IbalancesAPI[] | undefined }) => {
       >
         Assets
       </Text>
+      {!balances?.length && (
+        <>
+          <Skeleton
+            height="2rem"
+            w="95%"
+            my="1rem"
+            mx="auto"
+          />
+          <Skeleton
+            height="2rem"
+            w="95%"
+            my="1rem"
+            mx="auto"
+          />
+          <Skeleton
+            height="2rem"
+            w="95%"
+            my="1rem"
+            mx="auto"
+          />
+        </>
+      )}
       {balances?.map((token, id) => (
         <TokenInfo
           key={id}

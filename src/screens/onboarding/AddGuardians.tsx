@@ -16,31 +16,32 @@ const AddGuardians = () => {
       navigateTo={'/create/3'}
     >
       <Flex direction={'column'}>
-        <PasteInput label={'Fren 1'} />
-        <PasteInput label={'Fren 2'} />
+        <PasteInput
+          placeholder="guardian.eth"
+          label={'Fren 1'}
+        />
+        <PasteInput
+          placeholder="guardian.eth"
+          label={'Fren 2'}
+        />
       </Flex>
       <Box
         color="black"
-        px="1.5rem"
+        px=".75rem"
         mt="1.5rem"
       >
         <Text
-          fontSize={'0.8rem'}
+          fontSize={'0.75rem'}
           color="blackAlpha.700"
+          mb=".75rem"
         >
-          How many frens?
+          What is Password?
         </Text>
         <Text
-          fontSize={'0.65rem'}
-          color="blackAlpha.700"
-        >
-          The more, the merrier!
-        </Text>
-        <Text
-          fontSize={'0.65rem'}
+          fontSize={'0.75rem'}
           color="blackAlpha.600"
         >
-          You can also register your other ethereum accounts as frens.
+          <strong>The more, the merrier!</strong> You can also register your other ethereum accounts as frens.
         </Text>
       </Box>
     </OnboardingLayout>

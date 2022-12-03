@@ -45,19 +45,19 @@ const router = createBrowserRouter(
           element={<ConfirmSocial />}
         /> */}
         <Route
-          path="1"
+          path="0"
           element={<SetPassword />}
         />
         <Route
-          path="2"
+          path="1"
           element={<AddGuardians />}
         />
+        {/* <Route
+          path="2"
+          element={<WalletName />}
+        /> */}
         <Route
           path="3"
-          element={<WalletName />}
-        />
-        <Route
-          path="4"
           element={<AddFunds />}
         />
         <Route
