@@ -7,6 +7,7 @@ import BottomMenu from '../components/dashboard/BottomMenu';
 import UserTopBar from '../components/dashboard/UserTopBar';
 import UserInfoCard from '../components/dashboard/UserInfoCard';
 import { IbalancesAPI } from '../interfaces/IbalancesAPI';
+import AssetsList from '../components/dashboard/AssetsList';
 
 const Dashboard = () => {
   const chain_id = 80001;
@@ -51,7 +52,7 @@ const Dashboard = () => {
     >
       <UserTopBar />
       <UserInfoCard />
-
+      <AssetsList balances={balances} />
       <BottomMenu />
     </Box>
   );

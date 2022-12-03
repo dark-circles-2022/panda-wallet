@@ -16,6 +16,7 @@ const UserInfoCard = () => {
       borderRadius={'lg'}
       border="2px solid"
       borderColor={'icon.border.50'}
+      mt="5rem"
     >
       <GridItem
         rowSpan={2}

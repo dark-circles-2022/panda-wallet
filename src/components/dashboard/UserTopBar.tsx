@@ -17,6 +17,9 @@ const UserTopBar = () => {
       p="1rem"
       justify="space-between"
       align={'center'}
+      position={'absolute'}
+      top={0}
+      bgColor={'white'}
     >
       <Flex
         align={'center'}
