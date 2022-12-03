@@ -1,10 +1,8 @@
-import OnboardingLayout from '../layout/OnboardingLayout';
-import PrimaryButton from '../components/common/Button';
-import { Box, Flex, Input, InputGroup, InputRightAddon, Text } from '@chakra-ui/react';
+import OnboardingLayout from '../../layout/OnboardingLayout';
+import { Flex, Text } from '@chakra-ui/react';
 import { BiWalletAlt as Wallet } from 'react-icons/bi';
-import { BsCheck as Check } from 'react-icons/bs';
-import Eth from '../assets/Icons/CurrencyEth.svg';
-import BigIconButton from '../components/common/BigIconButton';
+import Eth from '../../assets/Icons/CurrencyEth.svg';
+import BigIconButton from '../../components/common/BigIconButton';
 
 const AddFunds = () => {
   return (

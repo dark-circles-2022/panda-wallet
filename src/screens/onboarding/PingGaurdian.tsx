@@ -1,6 +1,6 @@
-import OnboardingLayout from '../layout/OnboardingLayout';
+import OnboardingLayout from '../../layout/OnboardingLayout';
 import { Box, Flex, Text, useRadio, useRadioGroup, VStack } from '@chakra-ui/react';
-import GaurdianPing from '../components/common/Gaurdian';
+import GaurdianPing from '../../components/common/Gaurdian';
 
 const PingGaurdian = () => {
   const guardians = [

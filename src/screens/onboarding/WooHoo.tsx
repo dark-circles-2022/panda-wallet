@@ -1,6 +1,6 @@
-import Socials from '../components/common/Socials';
-import UserInfo from '../components/common/UserInfo';
-import OnboardingLayout from '../layout/OnboardingLayout';
+import Socials from '../../components/common/Socials';
+import UserInfo from '../../components/common/UserInfo';
+import OnboardingLayout from '../../layout/OnboardingLayout';
 import { BsCheck as Check } from 'react-icons/bs';
 
 const WooHoo = () => {
