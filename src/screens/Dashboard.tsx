@@ -15,7 +15,7 @@ const Dashboard = () => {
   const address = '0x657D3C03e450E4815f3411Aa26713A2A90e9Ad83';
 
   const [balances, setBalances] = useState<IbalancesAPI[]>();
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  const { isOpen, onOpen, onClose, onToggle } = useDisclosure();
 
   useEffect(() => {
     balancesAPI
@@ -54,7 +54,10 @@ const Dashboard = () => {
       bgColor={'white'}
       overflow={'auto'}
     >
-      <UserTopBar onOpen={onOpen} />
+      <UserTopBar
+        onOpen={onOpen}
+        onToggle={onToggle}
+      />
       <Notifications
         isOpen={isOpen}
         onClose={onClose}

@@ -1,18 +1,4 @@
-import {
-  Box,
-  Button,
-  CircularProgress,
-  CircularProgressLabel,
-  Flex,
-  Icon,
-  Modal,
-  ModalBody,
-  ModalCloseButton,
-  ModalContent,
-  ModalFooter,
-  ModalHeader,
-  ModalOverlay,
-} from '@chakra-ui/react';
+import { Flex, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, ModalOverlay } from '@chakra-ui/react';
 import { BsSlashCircle } from 'react-icons/bs';
 import { OutlineButton, SecondaryButton } from '../common/Button';
 import { FiArrowUpRight as Arrow } from 'react-icons/fi';
@@ -50,14 +36,14 @@ const DefaultModal = ({
         >
           <SecondaryButton
             prompt="Confirm"
-            onClick={() => onClose()}
             color="danger"
+            onClick={() => onConfirm()}
             borderColor={'danger'}
             icon={Arrow}
           />
           <OutlineButton
+            onClick={() => onClose()}
             prompt="Cancel"
-            onClick={() => onConfirm()}
             borderColor="black"
             icon={BsSlashCircle}
           />

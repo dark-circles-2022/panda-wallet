@@ -3,7 +3,7 @@ import { BiUser as User, BiBell } from 'react-icons/bi';
 import ButtonIcon from '../ButtonIcon';
 
 // @ts-ignore
-const UserTopBar = ({ onOpen }) => {
+const UserTopBar = ({ onOpen, onToggle }) => {
   const user = {
     icon: User as any,
     name: 'Pushkar',
@@ -50,7 +50,7 @@ const UserTopBar = ({ onOpen }) => {
         displayIcon={BiBell as any}
         variant="semi-solid"
         ariaLabel="notifications"
-        onClick={onOpen}
+        onClick={onToggle}
       />
     </Flex>
   );

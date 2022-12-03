@@ -31,7 +31,7 @@ const Onboard = () => {
           subtext="Shiny new wallet"
           isFirstTime
           onClick={() => {
-            navigate('/create/1');
+            navigate('/create/0');
           }}
         />
 
