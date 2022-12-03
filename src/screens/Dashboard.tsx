@@ -53,6 +53,6 @@ const Dashboard = () => {
       .catch((err) => console.log(err));
   }, []);
   return <Text>{JSON.stringify(balances)}</Text>;
-};
+}
 
 export default Dashboard;
