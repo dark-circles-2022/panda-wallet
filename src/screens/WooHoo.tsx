@@ -15,6 +15,7 @@ const WooHoo = () => {
       canSkip={false}
       nextPrompt={'finish'}
       nextIcon={Check as any}
+      navigateTo={'/dashboard'}
     >
       <UserInfo
         label={'Wallet Address'}

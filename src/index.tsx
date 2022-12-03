@@ -12,6 +12,7 @@ import WalletSelect from './screens/WalletSelectRecovery';
 import PingGaurdian from './screens/PingGaurdian';
 import AddFunds from './screens/AddFunds';
 import WooHoo from './screens/WooHoo';
+import Dashboard from './screens/Dashboard';
 
 const container = document.getElementById('root');
 if (!container) throw new Error('Failed to find the root element');
@@ -71,6 +72,11 @@ const router = createBrowserRouter(
           element={<WooHoo />}
         />
       </Route>
+      {/* Dashboard */}
+      <Route
+        path="dashboard"
+        element={<Dashboard />}
+      />
       {/* Test */}
       <Route
         path="test"
