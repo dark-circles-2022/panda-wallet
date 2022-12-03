@@ -16,7 +16,7 @@ const Onboard = () => {
       subtext="Let's get you all settled"
       currentStep={1}
       totalSteps={5}
-      isBackButtonVisible
+      isBackButtonVisible={false}
       isStepNumberVisible
       canSkip={false}
     >

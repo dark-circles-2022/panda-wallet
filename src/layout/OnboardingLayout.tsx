@@ -22,8 +22,8 @@ const OnboardingLayout = ({
   heading?: string;
   currentStep: number;
   totalSteps: number;
-  isBackButtonVisible: boolean;
-  isStepNumberVisible: boolean;
+  isBackButtonVisible?: boolean;
+  isStepNumberVisible?: boolean;
   canSkip?: boolean;
   children?: React.ReactNode;
 }) => {
