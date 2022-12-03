@@ -4,7 +4,6 @@ import * as ReactDOM from 'react-dom/client';
 import { RouterProvider, createRoutesFromElements, Route, Outlet } from 'react-router';
 import Onboard from './screens/onboarding/Onboard';
 import SetPassword from './screens/onboarding/SetPassword';
-import WalletName from './screens/onboarding/WalletName';
 import AddGuardians from './screens/onboarding/AddGuardians';
 import theme from './theme';
 import { createBrowserRouter } from 'react-router-dom';
@@ -45,19 +44,19 @@ const router = createBrowserRouter(
           element={<ConfirmSocial />}
         /> */}
         <Route
-          path="1"
+          path="0"
           element={<SetPassword />}
         />
         <Route
-          path="2"
+          path="1"
           element={<AddGuardians />}
         />
+        {/* <Route
+          path="2"
+          element={<WalletName />}
+        /> */}
         <Route
           path="3"
-          element={<WalletName />}
-        />
-        <Route
-          path="4"
           element={<AddFunds />}
         />
         <Route

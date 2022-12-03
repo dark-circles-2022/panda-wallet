@@ -14,12 +14,13 @@ const AddFunds = () => {
       isBackButtonVisible
       isStepNumberVisible
       canSkip
-      navigateTo="/create/4"
+      navigateTo="/create/done"
     >
       <Flex
         direction={'column'}
         justify="space-around"
         align={'center'}
+        gap="4"
       >
         <BigIconButton
           icon={Wallet as any}

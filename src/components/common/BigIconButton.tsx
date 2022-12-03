@@ -19,14 +19,19 @@ const BigIconButton = ({
       as={Button}
       position="relative"
       justify="center"
-      align="center"
+      align="end"
       w="full"
       h="6rem"
       py="0.75rem"
       px="1rem"
+      my="0.5rem"
       border="2px solid"
       borderColor={'icon.border.50'}
+      borderRadius="1rem"
       onClick={() => onClick()}
+      bgColor={'icon.bg.ghost.default'}
+      _hover={{ bgColor: 'icon.bg.ghost.hover' }}
+      outline={isFirstTime ? '2px solid #3B92F380' : 'none'}
     >
       {isFirstTime && (
         <Text
@@ -35,10 +40,10 @@ const BigIconButton = ({
           py="0.3rem"
           background={'black'}
           color={'white'}
-          top="-0.5rem"
+          top="-0.75rem"
           left={'1rem'}
           fontSize={'0.6rem'}
-          borderRadius={'full'}
+          borderRadius={'0.5rem'}
         >
           First Time?
         </Text>
@@ -46,17 +51,26 @@ const BigIconButton = ({
       <Icon
         as={icon}
         boxSize={'3rem'}
-        mr="1rem"
+        mr="2rem"
+        color={'icon.border.200'}
       />
       <Box
-        w="60%"
+        w="50%"
         overflowWrap={'break-word'}
+        textAlign="left"
       >
-        <Text fontSize={'1.5rem'}>{title}</Text>
+        <Text
+          color={'icon.border.200'}
+          fontSize={'1.5rem'}
+          mb="0.25rem"
+        >
+          {title}
+        </Text>
         <Text
           fontSize={'0.8rem'}
-          color="blackAlpha.700"
+          color={'icon.border.200'}
           fontWeight={400}
+          w="5ch"
         >
           {subtext}
         </Text>

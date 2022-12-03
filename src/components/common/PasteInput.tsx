@@ -4,7 +4,7 @@ import ButtonIcon from '../ButtonIcon/index';
 import { InputRightElement, Box, Input, InputGroup, Text } from '@chakra-ui/react';
 import { ethers } from 'ethers';
 
-const PasteInput = ({ label, setGuardian }: { label: string; setGuardian: any }) => {
+const PasteInput = ({ label, setGuardian, placeholder }: { label: string; setGuardian: any; placeholder: string }) => {
   const [value, setValue] = useState('');
   const [invalid, setInvalid] = useState(false);
   const handleSubmit = async () => {
@@ -34,6 +34,10 @@ const PasteInput = ({ label, setGuardian }: { label: string; setGuardian: any })
       py="0.5rem"
     >
       <Text
+        as="label"
+        display={'flex'}
+        justifyContent={'space-between'}
+        alignItems={'end'}
         color={'black'}
         fontSize={'0.8rem'}
         mb={'0.25rem'}
@@ -41,20 +45,31 @@ const PasteInput = ({ label, setGuardian }: { label: string; setGuardian: any })
       >
         {label}
       </Text>
+
       <InputGroup>
         <Input
           isInvalid={invalid}
-          type="text"
-          border="2px solid"
-          borderColor="icon.border.50"
-          placeholder="Enter password"
-          value={value}
           onChange={(e) => setValue(e.target.value)}
           onBlur={(e) => updateVal(e)}
+          border="2px solid"
+          borderColor="icon.border.50"
+          bg="input.bg.default"
+          type="text"
+          _focus={{
+            bg: 'input.bg.focus',
+            border: '2px solid',
+            borderColor: 'icon.border.50',
+          }}
+          _hover={{
+            bg: 'input.bg.focus',
+          }}
+          _placeholder={{ color: 'text.placeholder' }}
           borderRadius={'full'}
           variant={'filled'}
           color={'black'}
           h={'3rem'}
+          placeholder={placeholder ?? 'placeholder'}
+          value={value}
         />
         <InputRightElement
           width="3rem"

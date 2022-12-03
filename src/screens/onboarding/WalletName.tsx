@@ -1,7 +1,5 @@
 import OnboardingLayout from '../../layout/OnboardingLayout';
-import PrimaryButton from '../../components/common/Button';
 import { Box, Flex, Input, InputGroup, InputRightAddon, Text } from '@chakra-ui/react';
-import { FiArrowUpRight as Arrow } from 'react-icons/fi';
 import { useState } from 'react';
 
 const WalletName = () => {
@@ -15,7 +13,7 @@ const WalletName = () => {
       isBackButtonVisible
       isStepNumberVisible
       canSkip={false}
-      navigateTo={'/create/3'}
+      navigateTo={'/create/4'}
     >
       <Flex direction={'column'}>
         <Box
@@ -31,10 +29,20 @@ const WalletName = () => {
           </Text>
           <InputGroup>
             <Input
-              type="text"
-              border="2px solid"
-              borderColor="icon.border.50"
+              border={'2px solid'}
+              borderColor={'icon.border.50'}
+              type={'text'}
+              bg="input.bg.default"
+              _focus={{
+                bg: 'input.bg.focus',
+                border: '2px solid',
+                borderColor: 'icon.border.50',
+              }}
+              _hover={{
+                bg: 'input.bg.focus',
+              }}
               placeholder="pushkr"
+              _placeholder={{ color: 'text.placeholder' }}
               value={walletName}
               onChange={(e) => setWalletName(e.target.value)}
               borderRadius={'full'}
@@ -46,6 +54,7 @@ const WalletName = () => {
               children=".pnd"
               borderRadius={'full'}
               h={'3rem'}
+              bgColor={'icon.bg.ghost.default'}
             />
           </InputGroup>
         </Box>
