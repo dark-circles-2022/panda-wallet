@@ -46,7 +46,10 @@ const BigIconButton = ({
         boxSize={'3rem'}
         mr="1rem"
       />
-      <Box>
+      <Box
+        w="60%"
+        overflowWrap={'break-word'}
+      >
         <Text fontSize={'1.5rem'}>{title}</Text>
         <Text
           fontSize={'0.8rem'}
