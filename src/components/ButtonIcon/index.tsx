@@ -3,22 +3,28 @@ import React, { FC, HTMLAttributes } from 'react';
 
 const ButtonIcon: FC<
   HTMLAttributes<HTMLButtonElement> &
-    ChakraProps & { displayIcon: string; variant?: 'solid' | 'ghost' | 'outline' | 'semi-solid'; ariaLabel: string }
-> = ({ ariaLabel, displayIcon, variant, ...props }) => {
+    ChakraProps & { displayIcon: any; variant?: 'solid' | 'ghost' | 'outline' | 'semi-solid'; ariaLabel: string }
+> = ({ color, fontSize, ariaLabel, displayIcon, variant, ...props }) => {
   if (variant === 'semi-solid')
     return (
       <IconButton
         w={'10'}
         h={'10'}
         p={'2'}
-        icon={<Icon as={displayIcon as any} />}
+        minW="4"
+        icon={
+          <Icon
+            fontSize={fontSize}
+            as={displayIcon as any}
+            color={color ? color : 'icon.border.200'}
+          />
+        }
         border="2px solid"
         borderColor={'icon.border.50'}
         bg="icon.bg.ghost.default"
         _hover={{
           bg: 'icon.bg.ghost.hover',
         }}
-        color="icon.border.200"
         borderRadius="50%"
         aria-label={ariaLabel}
         {...props}
@@ -30,11 +36,13 @@ const ButtonIcon: FC<
         w={'10'}
         h={'10'}
         p={'2'}
+        minW="4"
         icon={
           <Icon
-            color={'white'}
+            color={color ? color : 'white'}
             stroke={'white'}
             as={displayIcon as any}
+            fontSize={fontSize}
           />
         }
         border="2px solid"
@@ -42,7 +50,6 @@ const ButtonIcon: FC<
           bg: 'icon.bg.solid.hover',
         }}
         bg="black"
-        color={'white'}
         borderRadius="50%"
         aria-label={ariaLabel}
         {...props}
@@ -54,11 +61,13 @@ const ButtonIcon: FC<
         w={'10'}
         h={'10'}
         p={'2'}
+        minW="4"
         icon={
           <Icon
-            color={'icon.border.200'}
+            color={color ? color : 'icon.border.200'}
             stroke={'icon.border.200'}
             as={displayIcon as any}
+            fontSize={fontSize}
           />
         }
         border="2px solid"
@@ -77,11 +86,13 @@ const ButtonIcon: FC<
       w={'10'}
       h={'10'}
       p={'2'}
+      minW="4"
       icon={
         <Icon
-          color={'icon.border.100'}
-          stroke={'icon.border.100'}
+          color={color ? color : 'icon.border.100'}
+          stroke={color ? color : 'icon.border.100'}
           as={displayIcon as any}
+          fontSize={fontSize}
         />
       }
       _hover={{

@@ -33,7 +33,7 @@ export const App = () => (
         isStepNumberVisible={true}
         canSkip={false}
       /> */}
-      {/* <CreateWallet /> */}
+      <CreateWallet />
       {/* <AddGuardians /> */}
       {/* <WalletName /> */}
       {/* <AddFunds /> */}

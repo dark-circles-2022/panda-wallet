@@ -24,11 +24,19 @@ const PasswordInput = ({ label }: { label: string }) => {
       >
         {label}
       </Text>
+
       <InputGroup>
         <Input
           type={shown ? 'text' : 'password'}
-          border="2px solid"
-          borderColor="icon.border.50"
+          bg="input.bg.default"
+          _focus={{
+            bg: 'input.bg.focus',
+            border: '2px solid',
+            borderColor: 'icon.border.50',
+          }}
+          _hover={{
+            bg: 'input.bg.focus',
+          }}
           placeholder="Enter password"
           value={value}
           onChange={(e) => setValue(e.target.value)}
@@ -42,7 +50,7 @@ const PasswordInput = ({ label }: { label: string }) => {
           h={'3rem'}
         >
           <ButtonIcon
-            displayIcon={shown ? (Hide as any) : (Show as any)}
+            displayIcon={shown ? Hide : Show}
             ariaLabel="Toggle Show Password"
             variant="semi-solid"
             onClick={handleClickShowPassword}
