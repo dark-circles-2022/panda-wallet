@@ -9,6 +9,7 @@ import BigIconButton from './components/common/BigIconButton';
 import { SiPastebin } from 'react-icons/si';
 import AddFunds from './screens/AddFunds';
 import Onboard from './screens/Onboard';
+import BottomMenu from './components/common/BottomMenu';
 
 export const App = () => (
   <ChakraProvider theme={theme}>
@@ -21,6 +22,7 @@ export const App = () => (
       borderRadius={'1.25rem'}
       overflow="hidden"
       boxShadow="0px 4px 40px rgba(0, 0, 0, 0.1)"
+      position={'relative'}
     >
       {/* <OnboardingLayout
         title={'Hey! 👋'}
@@ -35,7 +37,8 @@ export const App = () => (
       {/* <AddGuardians /> */}
       {/* <WalletName /> */}
       {/* <AddFunds /> */}
-      <Onboard />
+      {/* <Onboard /> */}
+      <BottomMenu />
     </Box>
   </ChakraProvider>
 );
