@@ -1,8 +1,11 @@
 import OnboardingLayout from '../../layout/OnboardingLayout';
 import { Box, Flex, Text } from '@chakra-ui/react';
 import PasteInput from '../../components/common/PasteInput';
+import { useState } from 'react';
 
 const AddGuardians = () => {
+  const [guardian1, setGuardian1] = useState();
+  const [guardian2, setGuardian2] = useState();
   return (
     <OnboardingLayout
       title="Guardians"
@@ -17,12 +20,14 @@ const AddGuardians = () => {
     >
       <Flex direction={'column'}>
         <PasteInput
-          placeholder="guardian.eth"
           label={'Fren 1'}
+          setGuardian={setGuardian1}
+          placeholder="guardian.eth"
         />
         <PasteInput
-          placeholder="guardian.eth"
           label={'Fren 2'}
+          setGuardian={setGuardian2}
+          placeholder="guardian.eth"
         />
       </Flex>
       <Box

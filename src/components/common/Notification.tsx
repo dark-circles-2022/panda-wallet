@@ -1,5 +1,4 @@
 import { Box, Button, Flex, Icon, Text } from '@chakra-ui/react';
-import { PrimaryButton } from './Button';
 
 const Notification = ({
   icon,
@@ -9,14 +8,16 @@ const Notification = ({
   url,
   cost,
   cta,
+  scheme,
 }: {
   icon: any;
   title: string;
   subtext: string;
-  date?: Date;
+  date?: string;
   url?: string;
   cost?: string;
   cta?: string;
+  scheme?: string;
 }) => {
   return (
     <Flex
@@ -24,9 +25,10 @@ const Notification = ({
       px="1rem"
       py="0.6rem"
       align="center"
+      justify={'space-between'}
     >
       <Flex
-        w="75%"
+        w="70%"
         align="center"
       >
         <Icon
@@ -38,20 +40,34 @@ const Notification = ({
             fontWeight={600}
             mb="-0.25rem"
             fontSize={'0.9rem'}
+            color={scheme}
           >
             {title}
           </Text>
           <Text fontSize={'0.65rem'}>{subtext}</Text>
+          <Flex>
+            {date && <Text fontSize={'0.5rem'}>{date}</Text>}
+            {url && (
+              <Text
+                fontSize={'0.5rem'}
+                ml="1rem"
+              >
+                {url}
+              </Text>
+            )}
+          </Flex>
         </Box>
       </Flex>
-      <Button
-        variant={'outline'}
-        borderRadius={'full'}
-        size="xs"
-        colorScheme="black"
-      >
-        {cta}
-      </Button>
+      {cta && (
+        <Button
+          variant={'outline'}
+          borderRadius={'full'}
+          size="xs"
+          colorScheme="black"
+        >
+          {cta}
+        </Button>
+      )}
     </Flex>
   );
 };
