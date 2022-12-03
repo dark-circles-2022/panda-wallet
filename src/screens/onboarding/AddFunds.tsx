@@ -20,6 +20,7 @@ const AddFunds = () => {
         direction={'column'}
         justify="space-around"
         align={'center'}
+        gap="4"
       >
         <BigIconButton
           icon={Wallet as any}
