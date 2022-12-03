@@ -1,10 +1,12 @@
 import React from 'react';
-import { Box, Button, CircularProgress, CircularProgressLabel, Flex, Text } from '@chakra-ui/react';
+import { Box, Button, CircularProgress, CircularProgressLabel, Flex, Text, useDisclosure } from '@chakra-ui/react';
 import ButtonIcon from '../components/ButtonIcon';
 import { HiArrowLeft } from 'react-icons/hi';
 import { useNavigate } from 'react-router';
-import PrimaryButton from '../components/common/Button';
+import PrimaryButton, { SecondaryButton } from '../components/common/Button';
 import { FiArrowUpRight as Arrow } from 'react-icons/fi';
+import { BsSlashCircle } from 'react-icons/bs';
+import DefaultModal from '../components/Modal';
 
 const OnboardingLayout = ({
   title,
@@ -12,9 +14,11 @@ const OnboardingLayout = ({
   heading,
   currentStep,
   totalSteps,
+  navigateTo = '/',
   isBackButtonVisible = true,
   isStepNumberVisible = true,
   canSkip = false,
+  warning,
   children,
 }: {
   title: string;
@@ -22,12 +26,15 @@ const OnboardingLayout = ({
   heading?: string;
   currentStep: number;
   totalSteps: number;
+  navigateTo?: string;
   isBackButtonVisible?: boolean;
   isStepNumberVisible?: boolean;
   canSkip?: boolean;
   children?: React.ReactNode;
+  warning?: string;
 }) => {
   const navigate = useNavigate();
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
     <Flex
@@ -39,6 +46,14 @@ const OnboardingLayout = ({
       color="white"
       flexDir={'column'}
     >
+      <DefaultModal
+        title="Are you sure?"
+        content={warning ?? 'You will lose all progress if you leave this page.'}
+        isOpen={isOpen}
+        onClose={onClose}
+        onConfirm={() => navigate(navigateTo)}
+      />
+
       <Box
         as="header"
         p="8"
@@ -114,7 +129,7 @@ const OnboardingLayout = ({
           )}
         </Flex>
 
-        <Box px="4">{children}</Box>
+        <Box>{children}</Box>
 
         <Flex
           mt="auto"
@@ -138,14 +153,24 @@ const OnboardingLayout = ({
             w="full"
             justifyContent="space-between"
           >
-            <PrimaryButton
-              justifySelf="end"
-              ml="auto"
-              icon={Arrow as any}
-              prompt={'next'}
-              color={'white'}
-              bg={'black'}
-            />
+            {canSkip && (
+              <SecondaryButton
+                prompt="Skip"
+                onClick={() => onOpen()}
+                icon={BsSlashCircle}
+                color="danger"
+              />
+            )}
+            {navigateTo && (
+              <PrimaryButton
+                justifySelf="end"
+                ml="auto"
+                icon={Arrow as any}
+                prompt={'next'}
+                color={'white'}
+                onClick={() => navigate(navigateTo)}
+              />
+            )}
           </Flex>
         </Flex>
       </Flex>

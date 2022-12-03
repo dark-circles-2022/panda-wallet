@@ -37,8 +37,8 @@ const colors = {
       200: '#5C6672',
       900: '#33404F',
     },
-    danger: '#FF7070',
   },
+  danger: '#FF7070',
 };
 const styles = {
   global: (props: StyleFunctionProps) => ({
