@@ -8,7 +8,6 @@ const UserTopBar = ({ onOpen, onToggle }) => {
     icon: User as any,
     name: 'Pushkar',
     walletName: 'pushkr.pnd',
-    walletAddress: '0x001122334455',
     balance: 433.7,
   };
 
