@@ -5,9 +5,28 @@ import { BsSlashCircle } from 'react-icons/bs';
 import { FiArrowUpRight as Arrow } from 'react-icons/fi';
 import PrimaryButton, { SecondaryButton } from '../common/Button';
 import { useNavigate } from 'react-router';
+import { useEffect } from 'react';
+import { ethers } from 'ethers';
+import { useWeb3Context } from '../../contexts/Web3Context';
 
 // @ts-ignore
 const RecoveryReview = ({ isOpen, onClose, onAcceptedOpen }) => {
+  const { eoaProvider, setEoaProvider, contractAddress, complexAccountContract } = useWeb3Context();
+
+  useEffect(() => {});
+  const calculateSignature = (scwAddress: string, newSigner: string, nonce: string) => {
+    const val = ethers.utils.solidityKeccak256(
+      ['bytes'],
+      [ethers.utils.solidityPack(['address', 'address', 'uint96'], [scwAddress, newSigner, nonce])]
+    );
+    // @ts-ignore
+    const signer = eoaProvider.getSigner();
+    return signer.signMessage(val);
+  };
+
+  const handleTransaction = async (scwAddress: string, newSigner: string, nonce: string) => {
+    await complexAccountContract!.recoverWallet(newSigner, calculateSignature(scwAddress, newSigner, nonce));
+  };
   const navigate = useNavigate();
   return (
     <>
