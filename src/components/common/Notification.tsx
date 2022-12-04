@@ -1,6 +1,7 @@
 import { Box, Button, Flex, Icon, Text } from '@chakra-ui/react';
 
 const Notification = ({
+  key,
   icon,
   title,
   subtext,
@@ -9,8 +10,11 @@ const Notification = ({
   cost,
   cta,
   scheme,
+  onRecoverOpen,
+  onClose,
 }: {
-  icon: any;
+  key: any;
+  icon?: any;
   title: string;
   subtext: string;
   date?: string;
@@ -18,6 +22,8 @@ const Notification = ({
   cost?: string;
   cta?: string;
   scheme?: string;
+  onRecoverOpen?: () => {};
+  onClose?: () => {};
 }) => {
   return (
     <Flex
@@ -40,7 +46,6 @@ const Notification = ({
             fontWeight={600}
             mb="-0.25rem"
             fontSize={'0.9rem'}
-            color={scheme}
           >
             {title}
           </Text>
@@ -63,7 +68,14 @@ const Notification = ({
           variant={'outline'}
           borderRadius={'full'}
           size="xs"
-          colorScheme="black"
+          colorScheme={scheme === 'danger' ? 'red' : 'green'}
+          // @ts-ignore
+          onClick={() => {
+            // @ts-ignore
+            onClose();
+            // @ts-ignore
+            onRecoverOpen();
+          }}
         >
           {cta}
         </Button>
