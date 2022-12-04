@@ -13,6 +13,7 @@ import AddFunds from './screens/onboarding/AddFunds';
 import WooHoo from './screens/onboarding/WooHoo';
 import Dashboard from './screens/Dashboard';
 import { Web3ContextProvider } from './contexts/Web3Context';
+import Loading from './screens/Loading';
 
 const container = document.getElementById('root');
 if (!container) throw new Error('Failed to find the root element');
@@ -27,6 +28,10 @@ const router = createBrowserRouter(
       <Route
         path="/"
         element={<Onboard />}
+      />
+      <Route
+        path="/loading"
+        element={<Loading />}
       />
 
       {/* Create */}

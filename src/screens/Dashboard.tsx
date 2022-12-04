@@ -11,10 +11,12 @@ import AssetsList from '../components/dashboard/AssetsList';
 import Notifications from '../components/shutters/Notifications';
 import RecoveryReview from '../components/shutters/RecoveryReview';
 import RecoveryAccepted from '../components/shutters/RecoveryAccepted';
+import { useWeb3Context } from '../contexts/Web3Context';
 
 const Dashboard = () => {
   const chain_id = 80001;
-  const address = '0x657D3C03e450E4815f3411Aa26713A2A90e9Ad83';
+
+  const { contractAddress } = useWeb3Context();
 
   const [balances, setBalances] = useState<IbalancesAPI[]>();
   const { isOpen, onOpen, onClose, onToggle } = useDisclosure();
@@ -23,7 +25,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     balancesAPI
-      .get(`/${chain_id}/address/${address}/balances_v2/`)
+      .get(`/${chain_id}/address/${contractAddress}/balances_v2/`)
       .then((res) => {
         const balanceData = res.data.data.items.map((asset: any) => {
           const multiplier = new BigNumber(10 ** asset.contract_decimals);

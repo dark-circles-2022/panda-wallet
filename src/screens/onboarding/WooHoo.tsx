@@ -3,8 +3,10 @@ import UserInfo from '../../components/common/UserInfo';
 import OnboardingLayout from '../../layout/OnboardingLayout';
 import { BsCheck as Check } from 'react-icons/bs';
 import { Flex } from '@chakra-ui/react';
+import { useWeb3Context } from '../../contexts/Web3Context';
 
 const WooHoo = () => {
+  const { contractAddress } = useWeb3Context();
   return (
     <OnboardingLayout
       title="Whoo Hoo!!"
@@ -24,7 +26,7 @@ const WooHoo = () => {
       >
         <UserInfo
           label={'Wallet Address'}
-          value={'0x0011001100110011'}
+          value={contractAddress}
         />
         {/* <UserInfo
           label={'Wallet Name'}
