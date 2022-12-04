@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { ethers } from 'ethers';
 import React, { createContext, FC, PropsWithChildren, useContext, useState } from 'react';
 import { useEffect } from 'react';
@@ -30,6 +31,7 @@ export const useWeb3Context = () => useContext(Web3Context);
 export const Web3ContextProvider: FC<PropsWithChildren> = ({ children }) => {
   // const [eoaSigner, setEoaSigner] = useState(null);
   const [eoaProvider, setEoaProvider] = useState<ethers.providers.Provider | null>(null);
+  const [eoaAddress, setEoaAddress] = useState<ethers.providers.Provider | null>(null);
   const [deployerContract, setDeployerContract] = useState<ethers.Contract | null>(null);
   const [complexAccountContract, setComplexAccountContract] = useState<ethers.Contract | null>(null);
   const deployerAddress = '0xA49Ee42f15034882060851Db5c37180501248F7B';
@@ -39,13 +41,21 @@ export const Web3ContextProvider: FC<PropsWithChildren> = ({ children }) => {
 
   localStorage.setItem('eoaAddressPvtKey', eoaAddressPvtKey.toString());
 
-  const [contractAddress, setContractAddress] = useState<string>('0xEb5fCbB0944a060C00c9Df9B8b1845800D5060EC');
+  const [contractAddress, setContractAddress] = useState<string>('0x0605DA2F0B7717c8494F94A9473A12b8acBe1077');
+
+  const [recoverWalletAddress, setRecoverWalletAddress] = useState('');
+
+  const [recoveryFrens, setRecoveryFrens] = useState('');
+
+  const deployWallet = async () => {
+    await deployerContract.deployAccount([eoaAddress], ['0xd52dBd85B950c8bFD4ba4e12800C66D08837609f']);
+  };
 
   useEffect(() => {
     if (eoaProvider) {
       console.log('eoaProvider', eoaProvider);
       // change contract address
-      const scwContract = new ethers.Contract('0x5FbDB2315678afecb367f032d93F642f64180aa3', scwAbi, eoaProvider);
+      const scwContract = new ethers.Contract('0x0605DA2F0B7717c8494F94A9473A12b8acBe1077', scwAbi, eoaProvider);
       setDeployerContract(new ethers.Contract(deployerAddress, deployerAbi, eoaProvider));
       setComplexAccountContract(
         new ethers.Contract('0x0605DA2F0B7717c8494F94A9473A12b8acBe1077', complexAccountAbi, eoaProvider)
@@ -57,6 +67,7 @@ export const Web3ContextProvider: FC<PropsWithChildren> = ({ children }) => {
 
   useEffect(() => {
     setEoaProvider(new ethers.Wallet(eoaAddressPvtKey).provider);
+    setEoaAddress(new ethers.Wallet(eoaAddressPvtKey).address);
   }, [eoaAddressPvtKey]);
   return (
     <Web3Context.Provider
@@ -68,6 +79,11 @@ export const Web3ContextProvider: FC<PropsWithChildren> = ({ children }) => {
         deployerContract,
         complexAccountContract,
         contractAddress,
+        recoverWalletAddress,
+        setRecoverWalletAddress,
+        recoveryFrens,
+        setRecoveryFrens,
+        deployWallet,
         // setEoaSigner
       }}
     >

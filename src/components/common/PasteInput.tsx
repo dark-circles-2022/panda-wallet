@@ -1,11 +1,21 @@
+// @ts-nocheck
 import { useState } from 'react';
 import { MdContentPaste as Paste } from 'react-icons/md';
 import ButtonIcon from '../ButtonIcon/index';
 import { InputRightElement, Box, Input, InputGroup, Text } from '@chakra-ui/react';
 import { ethers } from 'ethers';
 
-const PasteInput = ({ label, setGuardian, placeholder }: { label: string; setGuardian: any; placeholder: string }) => {
-  const [value, setValue] = useState('');
+const PasteInput = ({
+  value,
+  label,
+  setValue,
+  placeholder,
+}: {
+  value: string;
+  label: string;
+  setValue: any;
+  placeholder: string;
+}) => {
   const [invalid, setInvalid] = useState(false);
   const handleSubmit = async () => {
     // const provider = new ethers.providers.AlchemyProvider('goerli', 'SPd7VteBVbgcrj2NqjUd-xVJtdfcQUn6');

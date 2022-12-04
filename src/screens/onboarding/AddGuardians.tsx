@@ -1,11 +1,12 @@
+// @ts-nocheck
 import OnboardingLayout from '../../layout/OnboardingLayout';
 import { Box, Flex, Text } from '@chakra-ui/react';
 import PasteInput from '../../components/common/PasteInput';
 import { useState } from 'react';
+import { useWeb3Context } from '../../contexts/Web3Context';
 
 const AddGuardians = () => {
-  const [guardian1, setGuardian1] = useState();
-  const [guardian2, setGuardian2] = useState();
+  const { recoveryFrens, setRecoveryFrens } = useWeb3Context();
   return (
     <OnboardingLayout
       title="Guardians"
@@ -21,12 +22,14 @@ const AddGuardians = () => {
       <Flex direction={'column'}>
         <PasteInput
           label={'Fren 1'}
-          setGuardian={setGuardian1}
+          setValue={setRecoveryFrens}
+          value={recoveryFrens}
           placeholder="guardian.eth"
         />
         <PasteInput
           label={'Fren 2'}
-          setGuardian={setGuardian2}
+          setValue={setRecoveryFrens}
+          value={recoveryFrens}
           placeholder="guardian.eth"
         />
       </Flex>

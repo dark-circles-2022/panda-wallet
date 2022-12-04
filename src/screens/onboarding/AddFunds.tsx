@@ -14,7 +14,7 @@ const AddFunds = () => {
       isBackButtonVisible
       isStepNumberVisible
       canSkip
-      navigateTo="/create/done"
+      navigateTo="/loading"
     >
       <Flex
         direction={'column'}

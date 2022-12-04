@@ -2,14 +2,20 @@ import { CircularProgress, Flex, Image, Text } from '@chakra-ui/react';
 import React from 'react';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router';
+import { useWeb3Context } from '../contexts/Web3Context';
 
 const Loading = () => {
   const navigate = useNavigate();
+  // @ts-ignore
+  const { deployWallet, setContractAddress } = useWeb3Context();
   useEffect(() => {
-    let a = setTimeout(() => {
-      navigate('/create/done');
-    }, 3000);
-  }, [navigate]);
+    (async () => {
+      deployWallet().then((res: any) => {
+        setContractAddress(res);
+        navigate('/create/done');
+      });
+    })();
+  }, [deployWallet, navigate, setContractAddress]);
   return (
     <Flex
       w="full"

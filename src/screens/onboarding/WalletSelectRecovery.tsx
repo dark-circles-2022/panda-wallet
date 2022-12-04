@@ -1,19 +1,10 @@
+// @ts-nocheck
 import OnboardingLayout from '../../layout/OnboardingLayout';
-import { Box, Flex, Text, useRadio, useRadioGroup, VStack } from '@chakra-ui/react';
+import { Box, Flex, Input, InputGroup, Text, useRadio, VStack } from '@chakra-ui/react';
+import { useWeb3Context } from '../../contexts/Web3Context';
 
 const WalletSelect = () => {
-  const wallets = [
-    { name: 'wallet1', address: '0x1010101001010' },
-    { name: 'wallet2', address: '0x1010101001010' },
-    { name: 'wallet3', address: '0x1010101001010' },
-  ];
-
-  const { getRootProps, getRadioProps } = useRadioGroup({
-    name: 'wallet',
-    onChange: console.log,
-  });
-
-  const group = getRootProps();
+  const { recoverWalletAddress, setRecoverWalletAddress } = useWeb3Context();
 
   return (
     <OnboardingLayout
@@ -26,33 +17,51 @@ const WalletSelect = () => {
       canSkip={false}
       navigateTo={'/recover/1'}
     >
-      <VStack {...group}>
+      <VStack>
         <Text
           textAlign={'left'}
           fontSize={'0.8rem'}
           ml="1rem"
-        >
-          Select a wallet to recover
-        </Text>
-        {wallets.map((wallet) => {
-          const radio = getRadioProps({ wallet });
-          return (
-            <WalletOption
-              key={wallet.name}
-              {...radio}
-            >
-              <Text fontWeight={'600'}>{wallet.name}</Text>
-              <Text
-                fontSize={'0.8rem'}
-                fontWeight={400}
-                ml="0.5rem"
-                color={'text.main.200'}
-              >
-                {wallet.address}
-              </Text>
-            </WalletOption>
-          );
-        })}
+        ></Text>
+
+        <Box py="0.5rem">
+          <Text
+            as="label"
+            display={'flex'}
+            justifyContent={'space-between'}
+            alignItems={'end'}
+            color={'black'}
+            fontSize={'0.8rem'}
+            mb={'0.25rem'}
+            ml={'0.25rem'}
+          >
+            Enter wallet address to recover
+          </Text>
+
+          <InputGroup>
+            <Input
+              border={'2px solid'}
+              borderColor={'icon.border.50'}
+              type={'text'}
+              bg="input.bg.default"
+              _focus={{
+                bg: 'input.bg.focus',
+                border: '2px solid',
+                borderColor: 'icon.border.50',
+              }}
+              _hover={{
+                bg: 'input.bg.focus',
+              }}
+              _placeholder={{ color: 'text.placeholder' }}
+              value={recoverWalletAddress}
+              onChange={(e) => setRecoverWalletAddress(e.target.value)}
+              borderRadius={'full'}
+              variant={'filled'}
+              color={'black'}
+              h={'3rem'}
+            />
+          </InputGroup>
+        </Box>
       </VStack>
     </OnboardingLayout>
   );

@@ -1,13 +1,21 @@
+// @ts-nocheck
 import OnboardingLayout from '../../layout/OnboardingLayout';
 import { Box, Flex, Text, useRadio, useRadioGroup, VStack } from '@chakra-ui/react';
 import GaurdianPing from '../../components/common/Gaurdian';
+import { useWeb3Context } from '../../contexts/Web3Context';
+import { useEffect, useState } from 'react';
 
 const PingGaurdian = () => {
-  const guardians = [
-    { name: 'Vitakill', address: '0x00000000690000' },
-    { name: 'ScamFree', address: '0x00000000000420' },
-    { name: 'Nakoshi', address: '0x00000000990000' },
-  ];
+  const { complexAccountContract } = useWeb3Context();
+
+  const [guardians, setGuardians] = useState(['0xd52dBd85B950c8bFD4ba4e12800C66D08837609f']);
+
+  useEffect(() => {
+    complexAccountContract?.getGuardians().then((res) => {
+      console.log(res);
+      setGuardians(res);
+    });
+  }, [complexAccountContract]);
 
   return (
     <OnboardingLayout
@@ -28,7 +36,7 @@ const PingGaurdian = () => {
         >
           Ping gaurdians for recovery
         </Text>
-        {guardians.map((guardian, index) => (
+        {guardians?.map((guardian, index) => (
           <GaurdianPing
             key={index}
             guardian={guardian}
@@ -40,7 +48,7 @@ const PingGaurdian = () => {
           mx="1rem"
           mt="0.5rem"
         >
-          You need at least 2 out of _ guardians to accept your request.
+          You need at least 50% out of guardians to accept your request.
         </Text>
       </Flex>
     </OnboardingLayout>

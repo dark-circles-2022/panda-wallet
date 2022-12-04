@@ -4,7 +4,7 @@ import { BiBell } from 'react-icons/bi';
 import * as PushAPI from '@pushprotocol/restapi';
 import * as ethers from 'ethers';
 
-const GaurdianPing = ({ guardian }: { guardian: { name: string; address: string } }) => {
+const GaurdianPing = ({ guardian }: { guardian: string }) => {
   const sendNotification = async () => {
     const PK = '17d938bf4c27dd945729a2bcf9049efa70e3c8adec80e6d376bb1e03f5aa137b'; // channel private key
     const Pkey = `0x${PK}`;
@@ -42,18 +42,18 @@ const GaurdianPing = ({ guardian }: { guardian: { name: string; address: string 
       border="2px solid"
       borderColor={'icon.border.50'}
       align="center"
-      justify={'space-around'}
+      justify={'space-between'}
       p="0.5rem"
       my="0.25rem"
     >
       <Box>
-        <Text fontWeight={'600'}>{guardian?.name}</Text>
         <Text
-          fontSize={'0.8rem'}
+          ml="1rem"
+          fontSize={'1rem'}
           fontWeight={400}
           color={'text.main.200'}
         >
-          {guardian?.address}
+          {guardian.toString().slice(0, 6)}...{guardian.toString().slice(-6, -1)}
         </Text>
       </Box>
 
