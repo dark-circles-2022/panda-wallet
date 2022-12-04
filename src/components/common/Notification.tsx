@@ -1,6 +1,7 @@
 import { Box, Button, Flex, Icon, Text } from '@chakra-ui/react';
 
 const Notification = ({
+  key,
   icon,
   title,
   subtext,
@@ -12,7 +13,8 @@ const Notification = ({
   onRecoverOpen,
   onClose,
 }: {
-  icon: any;
+  key: any;
+  icon?: any;
   title: string;
   subtext: string;
   date?: string;
@@ -20,8 +22,8 @@ const Notification = ({
   cost?: string;
   cta?: string;
   scheme?: string;
-  onRecoverOpen: () => {};
-  onClose: () => {};
+  onRecoverOpen?: () => {};
+  onClose?: () => {};
 }) => {
   return (
     <Flex
@@ -69,7 +71,9 @@ const Notification = ({
           colorScheme={scheme === 'danger' ? 'red' : 'green'}
           // @ts-ignore
           onClick={() => {
+            // @ts-ignore
             onClose();
+            // @ts-ignore
             onRecoverOpen();
           }}
         >

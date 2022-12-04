@@ -3,9 +3,23 @@ import ButtonIcon from '../ButtonIcon';
 import { MdClose as Close } from 'react-icons/md';
 import { FaRegHandshake as Handshake } from 'react-icons/fa';
 import Notification from '../common/Notification';
+import { useEffect, useState } from 'react';
+import * as PushAPI from '@pushprotocol/restapi';
 
 // @ts-ignore
-const Notifications = ({ isOpen, onClose, onRecoverOpen, onAcceptedOpen }) => {
+const Notifications = ({ isOpen, onClose }) => {
+  const [notifs, setNotifs] = useState([]);
+  useEffect(() => {
+    PushAPI.user
+      .getFeeds({
+        user: 'eip155:80001:0x6b531D03dEF4d25e3fc300b88c032a1f620D22B0', // user address in CAIP
+        env: 'staging',
+      })
+      .then((notifications) => {
+        console.log(notifications);
+        setNotifs(notifications);
+      });
+  }, []);
   return (
     <>
       {isOpen && (
@@ -36,24 +50,25 @@ const Notifications = ({ isOpen, onClose, onRecoverOpen, onAcceptedOpen }) => {
             />
           </Flex>
           <Flex direction="column">
-            <Notification
-              icon={Handshake as any}
-              title={'Recover Wallet - Harsh'}
-              subtext={'Harsh wants to recover their wallet, review request'}
-              cta={'review'}
-              onRecoverOpen={onRecoverOpen}
-              onClose={onClose}
-              scheme={'danger'}
-            />
-            <Notification
-              icon={Handshake as any}
-              title={'Wallet Recovered - Harsh'}
-              subtext={"You helped your fren. Harsh's wallet has been recovered"}
-              cta={'details'}
-              onRecoverOpen={onAcceptedOpen}
-              onClose={onClose}
-              scheme={'success'}
-            />
+            {notifs &&
+              notifs.map((notif, i) => {
+                // @ts-ignore
+                if (notif.message) {
+                  return (
+                    <Notification
+                      key={i}
+                      icon={Handshake as any}
+                      // @ts-ignore
+                      title={notif.title}
+                      // @ts-ignore
+                      subtext={notif.message}
+                      // @ts-ignore
+                      cta={notif.cta}
+                      scheme={'danger'}
+                    />
+                  );
+                }
+              })}
           </Flex>
         </Box>
       )}
