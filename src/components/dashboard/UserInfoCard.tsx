@@ -1,4 +1,4 @@
-import { Text, Box, Flex } from '@chakra-ui/react';
+import { Text, Box, Flex, useClipboard } from '@chakra-ui/react';
 import ButtonIcon from '../ButtonIcon/index';
 import { FiShare as Share } from 'react-icons/fi';
 import { MdContentCopy as Copy } from 'react-icons/md';
@@ -7,6 +7,8 @@ import { useWeb3Context } from '../../contexts/Web3Context';
 
 const UserInfoCard = () => {
   const { contractAddress } = useWeb3Context();
+  const { onCopy, value, setValue, hasCopied } = useClipboard(contractAddress);
+
   return (
     <Flex
       h={'10rem'}
@@ -74,6 +76,7 @@ const UserInfoCard = () => {
             displayIcon={Copy as any}
             variant="semi-solid"
             ariaLabel="copy"
+            onClick={onCopy}
           />
         </Flex>
       </Flex>
