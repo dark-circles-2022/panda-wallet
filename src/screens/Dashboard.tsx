@@ -71,6 +71,7 @@ const Dashboard = () => {
       <RecoveryReview
         isOpen={isRecoverOpen}
         onClose={onRecoverClose}
+        onAcceptedOpen={onAcceptedOpen}
       />
       <RecoveryAccepted
         isOpen={isAcceptedOpen}

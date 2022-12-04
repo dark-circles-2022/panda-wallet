@@ -7,7 +7,7 @@ import PrimaryButton, { SecondaryButton } from '../common/Button';
 import { useNavigate } from 'react-router';
 
 // @ts-ignore
-const RecoveryReview = ({ isOpen, onClose }) => {
+const RecoveryReview = ({ isOpen, onClose, onAcceptedOpen }) => {
   const navigate = useNavigate();
   return (
     <>
@@ -82,7 +82,7 @@ const RecoveryReview = ({ isOpen, onClose }) => {
                 icon={Arrow as any}
                 prompt={'accept'}
                 color={'white'}
-                onClick={onClose}
+                onClick={onAcceptedOpen}
               />
             </Flex>
           </Flex>

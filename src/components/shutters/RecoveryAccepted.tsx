@@ -3,11 +3,9 @@ import ButtonIcon from '../ButtonIcon';
 import { MdClose as Close } from 'react-icons/md';
 import { BsSlashCircle } from 'react-icons/bs';
 import { SecondaryButton } from '../common/Button';
-import { useNavigate } from 'react-router';
 
 // @ts-ignore
 const RecoveryAccepted = ({ isOpen, onClose }) => {
-  const navigate = useNavigate();
   return (
     <>
       {isOpen && (
@@ -28,7 +26,7 @@ const RecoveryAccepted = ({ isOpen, onClose }) => {
             justify={'space-between'}
             align="center"
           >
-            <Text>Recovery Request</Text>
+            <Text>Recovery Accepted</Text>
             <ButtonIcon
               displayIcon={Close as any}
               variant={'semi-solid'}
