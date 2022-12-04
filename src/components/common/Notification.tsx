@@ -26,6 +26,7 @@ const Notification = ({
   onRecoverOpen?: () => {};
   onClose?: () => {};
 }) => {
+  console.log(onRecoverOpen);
   return (
     <Flex
       w="full"

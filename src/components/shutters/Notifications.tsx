@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 import * as PushAPI from '@pushprotocol/restapi';
 
 // @ts-ignore
-const Notifications = ({ isOpen, onClose }) => {
+const Notifications = ({ isOpen, onClose, onRecoverOpen, onAcceptedOpen }) => {
   const [notifs, setNotifs] = useState([]);
   useEffect(() => {
     PushAPI.user
@@ -64,6 +64,8 @@ const Notifications = ({ isOpen, onClose }) => {
                       subtext={notif.message}
                       // @ts-ignore
                       cta={notif.cta}
+                      onRecoverOpen={onRecoverOpen}
+                      onClose={onClose}
                       scheme={'danger'}
                     />
                   );
