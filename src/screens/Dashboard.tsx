@@ -9,6 +9,8 @@ import UserInfoCard from '../components/dashboard/UserInfoCard';
 import { IbalancesAPI } from '../interfaces/IbalancesAPI';
 import AssetsList from '../components/dashboard/AssetsList';
 import Notifications from '../components/shutters/Notifications';
+import RecoveryReview from '../components/shutters/RecoveryReview';
+import RecoveryAccepted from '../components/shutters/RecoveryAccepted';
 
 const Dashboard = () => {
   const chain_id = 80001;
@@ -16,6 +18,8 @@ const Dashboard = () => {
 
   const [balances, setBalances] = useState<IbalancesAPI[]>();
   const { isOpen, onOpen, onClose, onToggle } = useDisclosure();
+  const { isOpen: isRecoverOpen, onOpen: onRecoverOpen, onClose: onRecoverClose } = useDisclosure();
+  const { isOpen: isAcceptedOpen, onOpen: onAcceptedOpen, onClose: onAcceptedClose } = useDisclosure();
 
   useEffect(() => {
     balancesAPI
@@ -61,6 +65,16 @@ const Dashboard = () => {
       <Notifications
         isOpen={isOpen}
         onClose={onClose}
+        onRecoverOpen={onRecoverOpen}
+        onAcceptedOpen={onAcceptedOpen}
+      />
+      <RecoveryReview
+        isOpen={isRecoverOpen}
+        onClose={onRecoverClose}
+      />
+      <RecoveryAccepted
+        isOpen={isAcceptedOpen}
+        onClose={onAcceptedClose}
       />
       <UserInfoCard />
       <AssetsList balances={balances} />

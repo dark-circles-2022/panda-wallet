@@ -5,7 +5,7 @@ import { FaRegHandshake as Handshake } from 'react-icons/fa';
 import Notification from '../common/Notification';
 
 // @ts-ignore
-const Notifications = ({ isOpen, onClose }) => {
+const Notifications = ({ isOpen, onClose, onRecoverOpen, onAcceptedOpen }) => {
   return (
     <>
       {isOpen && (
@@ -41,6 +41,8 @@ const Notifications = ({ isOpen, onClose }) => {
               title={'Recover Wallet - Harsh'}
               subtext={'Harsh wants to recover their wallet, review request'}
               cta={'review'}
+              onRecoverOpen={onRecoverOpen}
+              onClose={onClose}
               scheme={'danger'}
             />
             <Notification
@@ -48,6 +50,8 @@ const Notifications = ({ isOpen, onClose }) => {
               title={'Wallet Recovered - Harsh'}
               subtext={"You helped your fren. Harsh's wallet has been recovered"}
               cta={'details'}
+              onRecoverOpen={onAcceptedOpen}
+              onClose={onClose}
               scheme={'success'}
             />
           </Flex>
