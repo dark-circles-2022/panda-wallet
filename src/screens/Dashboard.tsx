@@ -59,12 +59,14 @@ const Dashboard = () => {
       overflow={'auto'}
     >
       <UserTopBar
+        // @ts-ignore
         onOpen={onOpen}
         onToggle={onToggle}
       />
       <Notifications
         isOpen={isOpen}
         onClose={onClose}
+        // @ts-ignore
         onRecoverOpen={onRecoverOpen}
         onAcceptedOpen={onAcceptedOpen}
       />

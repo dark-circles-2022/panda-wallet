@@ -26,10 +26,10 @@ const WooHoo = () => {
           label={'Wallet Address'}
           value={'0x0011001100110011'}
         />
-        <UserInfo
+        {/* <UserInfo
           label={'Wallet Name'}
           value={'pushkr.pnd'}
-        />
+        /> */}
         <Socials />
       </Flex>
     </OnboardingLayout>
