@@ -1,4 +1,3 @@
-// @ts-nocheck
 import OnboardingLayout from '../../layout/OnboardingLayout';
 import { Box, Flex, Text, useRadio, useRadioGroup, VStack } from '@chakra-ui/react';
 import GaurdianPing from '../../components/common/Gaurdian';
@@ -11,6 +10,7 @@ const PingGaurdian = () => {
   const [guardians, setGuardians] = useState(['0xd52dBd85B950c8bFD4ba4e12800C66D08837609f']);
 
   useEffect(() => {
+    // @ts-ignore
     complexAccountContract?.getGuardians().then((res) => {
       console.log(res);
       setGuardians(res);

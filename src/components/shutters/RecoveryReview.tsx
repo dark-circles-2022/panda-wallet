@@ -28,6 +28,7 @@ const RecoveryReview = ({ isOpen, onClose, onAcceptedOpen }) => {
     await complexAccountContract!.recoverWallet(newSigner, calculateSignature(scwAddress, newSigner, nonce));
   };
   const navigate = useNavigate();
+
   return (
     <>
       {isOpen && (
