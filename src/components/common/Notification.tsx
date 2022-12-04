@@ -1,8 +1,9 @@
 import { Box, Button, Flex, Icon, Text } from '@chakra-ui/react';
+import { FaRegHandshake as Handshake } from 'react-icons/fa';
 
 const Notification = ({
   key,
-  icon,
+  icon = Handshake as any,
   title,
   subtext,
   date,
