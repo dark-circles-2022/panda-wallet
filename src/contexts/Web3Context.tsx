@@ -1,6 +1,7 @@
 import { ethers } from 'ethers';
 import React, { createContext, FC, PropsWithChildren, useContext, useState } from 'react';
 import { useEffect } from 'react';
+import { scwAbi } from '../abi/scw';
 
 interface Web3ContextInterface {
   eoaProvider: ethers.providers.Provider | null;
@@ -26,6 +27,15 @@ export const Web3ContextProvider: FC<PropsWithChildren> = ({ children }) => {
     localStorage.getItem('eoaAddressPvtKey') || ethers.Wallet.createRandom().privateKey.toString();
 
   localStorage.setItem('eoaAddressPvtKey', eoaAddressPvtKey.toString());
+
+  useEffect(() => {
+    if (eoaProvider) {
+      console.log('eoaProvider', eoaProvider);
+      // change contract address
+      const scwContract = new ethers.Contract('0x5FbDB2315678afecb367f032d93F642f64180aa3', scwAbi, eoaProvider);
+      const scwAddress = scwContract.address;
+    }
+  }, [eoaProvider]);
 
   useEffect(() => {
     setEoaProvider(new ethers.Wallet(eoaAddressPvtKey).provider);
